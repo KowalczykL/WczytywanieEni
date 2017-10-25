@@ -43,6 +43,31 @@ public class ExpToFile {
         }
         
     }
+        public static void Exportuj(Odczyt odc){
+        File fout = new File("output2.CSV");
+        FileWriter out = null;
+        try {
+            out = new FileWriter(fout);
+            fout.createNewFile();
+            //out.write(list.toString());
+            //for (int i = 0; i < ((list.size())); i++){
+            //out.write(i+1);
+            out.write(odc.toString()+"\n");
+        //}
+        }
+        catch (IOException ex){
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                out.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ExpToFile.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
     
     
     
