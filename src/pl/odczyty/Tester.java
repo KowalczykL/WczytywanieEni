@@ -12,6 +12,24 @@ import java.util.ArrayList;
  * @author Łukasz Kowalczyk
  */
 public class Tester {
+   
+     public static void T6(){  // TEST - zapisz objekt
+        Odczyt odc = new Odczyt("ENI1256", "2017-03-16", "1256985");
+        SQLiteJDBC.zapiszOdczyt(odc);
+          
+    }
+    
+    
+    public static void T5(){  // TEST - tworz tabele
+        SQLiteJDBC.tworzTabele("odczyty","odczyty");
+    }
+    
+     public static void T4(){  // TEST - tworz DB
+        SQLiteJDBC.tworzBaze("odczyty");
+    }
+    
+    
+    
     
     public static void T3(){  // TEST - de-serializacja  
         ArrayList<Odczyt> lista = (Deserializer.Deserialize("outputObj.CSV")); 

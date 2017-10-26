@@ -12,10 +12,10 @@ public class WczytywanieEni {
 
     public static void main(String[] args) {
         //Tester.T1(); //odc z pliku, zap do pli
-        Tester.T2(); //serializacja do pliku
-        Tester.T3(); //deserializacja z pliku
-        //Tester.T1();
-        //Tester.T1();
-        //Tester.T1();
+        //Tester.T2(); //serializacja do pliku
+        //Tester.T3(); //deserializacja z pliku
+        //Tester.T4(); //tworzy baze
+        //Tester.T5(); //twor tabele
+        Tester.T6(); //zapisz objekt
     }
 }
