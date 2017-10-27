@@ -5,18 +5,39 @@
  */
 package pl.odczyty;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Łukasz Kowalczyk
  */
 public class Tester {
+    
+     public static void testuj(){  // TEST - test do wykonania
+          Tester.T8();
+    }
+    
+      public static void T8(){
+          ListaPlikow.listuj();
+      }  
+    
+    public static void T7(){  // TEST - czy wczytany plik jest w bazie
+        //Odczyt odc = new Odczyt("ENI1256", "2017-03-16", "1256985");
+        if (SQLiteJDBC.czyWczytany("plik81") == true){
+            System.out.println("Plik już wczytany");}
+        else {System.out.println("Plik do wczytania");}
+            
+            
+        //SQLiteJDBC.czyWczytany("plik8");
+        //SQLiteJDBC.czyWczytany("plik123");
+    }
    
      public static void T6(){  // TEST - zapisz objekt
         Odczyt odc = new Odczyt("ENI1256", "2017-03-16", "1256985");
         SQLiteJDBC.zapiszOdczyt(odc);
-          
     }
     
     
@@ -37,7 +58,7 @@ public class Tester {
     }
     
     public static void T2(){  // TEST - serializacja
-       ArrayList<Odczyt> lista = (ImportZPliku.Importuj("plik3.CSV")); 
+       ArrayList<Odczyt> lista = (ImportPliku.Importuj("plik3.CSV")); 
         Serializer.Serialize(lista);        
     }
     
@@ -48,7 +69,7 @@ public class Tester {
     {
     //Odczyt odc1 = new Odczyt("1","1","1");
         //System.out.println(odc1);
-        ArrayList<Odczyt> lista = (ImportZPliku.Importuj("plik3.CSV"));
+        ArrayList<Odczyt> lista = (ImportPliku.Importuj("plik3.CSV"));
         Odczyt odc1= lista.get(7);
         System.out.println(lista);
         //ExpToFile.Exportuj(lista);

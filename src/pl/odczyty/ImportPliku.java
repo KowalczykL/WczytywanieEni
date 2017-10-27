@@ -10,7 +10,19 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ImportZPliku {
+public class ImportPliku {
+    
+    //public static boolean czyWczytany (String plik){
+        
+        
+        
+      //return false;  
+   // }
+    
+    
+    
+    
+    
     
     
     public static ArrayList<Odczyt> Importuj(String nazwaPliku){
@@ -34,9 +46,9 @@ public class ImportZPliku {
                  }
                  }
             } catch (FileNotFoundException ex) {
-            Logger.getLogger(ImportZPliku.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ImportPliku.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ImportZPliku.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ImportPliku.class.getName()).log(Level.SEVERE, null, ex);
         }
             
             return odczytyPliku;

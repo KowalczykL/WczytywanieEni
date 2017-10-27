@@ -16,6 +16,6 @@ public class WczytywanieEni {
         //Tester.T3(); //deserializacja z pliku
         //Tester.T4(); //tworzy baze
         //Tester.T5(); //twor tabele
-        Tester.T6(); //zapisz objekt
+        Tester.testuj(); //zapisz objekt
     }
 }
