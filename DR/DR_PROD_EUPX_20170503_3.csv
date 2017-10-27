@@ -1,0 +1,8 @@
+DR_PROD_EUPX_20170503_3.csv;;;;;;;;;;;;;;;
+kOSD;PROD;;;;;;;;;;;;;;
+kSE;EUPX;;;;;;;;;;;;;;
+DCW;2017-05-03 10:14:57;;;;;;;;;;;;;;
+NR;1;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+PPE;Nr licznika;Kod OT;Taryfa;Strefa;Data od;Data do;Wskazanie poprzednie;Wskazanie biezace;Zuzycie brutto[kWh];Straty[kWh];Mnozna;Wersja danych;Status Odczytu;Status Rozliczenia;Rodzaj Odczytu
+PROD_511000578213;32607814;0;C21;1;2017-04-01;2017-04-30;12145,498;13363,195;1218;0;1;1;Z;F;R

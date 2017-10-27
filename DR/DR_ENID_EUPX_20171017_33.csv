@@ -1,0 +1,8 @@
+DR_ENID_EUPX_20171017_33.csv;;;;;;;;;;;;;;;;;
+kOSD;ENID;;;;;;;;;;;;;;;;
+kSE;EUPX;;;;;;;;;;;;;;;;
+DCW;2017-10-17 10:31:47;;;;;;;;;;;;;;;;
+NR;1;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;
+PPE;Nr licznika;Kod OT;Taryfa;Energia;Strefa;Data od;Data do;Wskazanie poprzednie;Wskazanie biezace;Zuzycie brutto[kWh];Straty[kWh];Korekty[kWh];Mnozna;Wersja danych;Status Odczytu;Status Rozliczenia;Rodzaj Odczytu
+ENID_4081064807;62230628;0;C11;ECP;1;2017-09-14;2017-10-13;94473;95876,6;1404;0;0;1;1;F;O;P

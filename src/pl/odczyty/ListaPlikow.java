@@ -10,22 +10,13 @@ package pl.odczyty;
  * @author Łukasz Kowalczyk
  */
 import java.io.BufferedReader;
-
 import java.io.File;
-
 import java.io.FileReader;
-
 import java.io.IOException;
-
-
 import java.io.BufferedReader;
-
 import java.io.File;
-
 import java.io.FileReader;
-
 import java.io.IOException;
-
 
 public class ListaPlikow {
 
@@ -34,7 +25,7 @@ public class ListaPlikow {
 
         public static void listuj(){
             
-        String dirPathname = "C:\\Users\\Łukasz Kowalczyk\\Desktop\\pliki pomiarowe\\Pliki pom\\lzt\\Odczyty";
+        String dirPathname = "DR";
         File directory = new File(dirPathname);
         if(!directory.isDirectory()){
             System.out.println(dirPathname + " is not directory");
@@ -43,6 +34,8 @@ public class ListaPlikow {
         File[] files = directory.listFiles();
         for (File file : files) {
         System.out.println(file);
+        SQLiteJDBC.czyWczytany(file.toString());
+        
 //file.getPath();
         }
         

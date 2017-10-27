@@ -1,0 +1,8 @@
+DR_PROD_EUPX_20171002_9.csv;;;;;;;;;;;;;;;
+kOSD;PROD;;;;;;;;;;;;;;
+kSE;EUPX;;;;;;;;;;;;;;
+DCW;2017-10-02 10:16:46;;;;;;;;;;;;;;
+NR;1;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+PPE;Nr licznika;Kod OT;Taryfa;Strefa;Data od;Data do;Wskazanie poprzednie;Wskazanie biezace;Zuzycie brutto[kWh];Straty[kWh];Mnozna;Wersja danych;Status Odczytu;Status Rozliczenia;Rodzaj Odczytu
+PROD_511000578213;32607814;0;C21;1;2017-09-01;2017-09-30;17474,952;18460,265;985;0;1;1;Z;O;R

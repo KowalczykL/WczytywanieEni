@@ -17,7 +17,7 @@ public class SQLiteJDBC {
          Class.forName("org.sqlite.JDBC");
          c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
          c.setAutoCommit(false);
-         System.out.println("Opened database successfully");
+         //System.out.println("Opened database successfully");
          
          stmt = c.createStatement();
          ResultSet rs;
@@ -28,7 +28,7 @@ public class SQLiteJDBC {
              test = true;             
          }
          
-         System.out.println(plik+wyniki);
+         //System.out.println(plik+wyniki);
          
          
          }
