@@ -5,10 +5,31 @@
  */
 package pl.odczyty;
 
+import java.io.File;
 import java.sql.*;
 
 
 public class SQLiteJDBC {
+    
+    //public static void doWczytania()
+    
+    public static File[] doWczytania (File[] wejsciowa){
+        File[] wyjsciowy = null;
+        for (int i=0; i<wejsciowa.length; i++){
+            if(SQLiteJDBC.czyWczytany(wejsciowa[i].toString()));
+            System.out.println("SQL.doWczyt "+(wejsciowa[i].toString()));
+            //wyjsciowy.add(wejsciowa[i].toString());
+        }
+        
+        
+        
+        
+        
+        return wyjsciowy;
+    }
+    
+    
+    
         public static boolean czyWczytany (String plik){
         Boolean test = false;
         Connection c = null;
@@ -27,28 +48,19 @@ public class SQLiteJDBC {
          if (plik.equals(wyniki)){
              test = true;             
          }
-         
-         //System.out.println(plik+wyniki);
-         
-         
          }
-        // String sql = "INSERT INTO OdczytyT (PPE,DATA,TARYFA,WSKBIE) " +
-              //     "VALUES ('"+odc.ppe+"',"+odc.data+",'C12','123');"; 
-                 //  "VALUES ('12', "+odc.data+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
-         
-                 
-                 
-                 //stmt.executeUpdate(sql);
-         //stmt.close();
-         //c.commit();
          c.close();
       } catch ( Exception e ) {
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
          System.exit(0);
       }
-      System.out.println(test);
-        
-      return test;  
+      System.out.println("SQLiteJDBC,czyEczytany: return - "+test);
+        if(!test){
+            System.out.println("SQLiteJDBC.czyWczytany: Do wczytania - "+plik.toString());
+        }
+        else{System.out.println("SQLiteJDBC.czyWczytany: Nic do wczytania");}
+      return test; 
+      
     }
     
     

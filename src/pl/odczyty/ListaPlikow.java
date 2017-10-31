@@ -18,28 +18,33 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+
 public class ListaPlikow {
 
-
+        
 	private static final boolean RECURSIVE = false;
-
-        public static void listuj(){
+/**zwraca taklice File[] z zawartością folderu*/
+        
+        public static File[] listuj(String sciezka){
             
-        String dirPathname = "DR";
+        String dirPathname = sciezka;
         File directory = new File(dirPathname);
         if(!directory.isDirectory()){
             System.out.println(dirPathname + " is not directory");
             } 
         //drukujZaw(directory);
         File[] files = directory.listFiles();
-        for (File file : files) {
-        System.out.println(file);
-        SQLiteJDBC.czyWczytany(file.toString());
-        
+        System.out.println("ListaPlików.listuj - "+files.toString());
+        return files;
+        //for (File file : files) {
+        //if (!SQLiteJDBC.czyWczytany(file.toString())){
+        //System.out.println(file.toString());}
+        //else{System.out.println("else");}
 //file.getPath();
         }
         
-        }
+        
            
         
         

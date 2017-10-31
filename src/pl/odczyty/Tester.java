@@ -5,6 +5,7 @@
  */
 package pl.odczyty;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,12 +17,24 @@ import java.util.logging.Logger;
  */
 public class Tester {
     
+    
+    
      public static void testuj(){  // TEST - test do wykonania
           Tester.T8();
     }
     
-      public static void T8(){
-          ListaPlikow.listuj();
+     public static void pelnyTest(){
+     Dystrybutor Tauron = new Dystrybutor ("Tauron", "TAU", "DR");
+     
+     }
+     
+      public static void T8(){ //wywala liste plików z info czy są w SQL
+          File[] pliki = ListaPlikow.listuj("DR");
+         for (File pliki1 : pliki) {
+             System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
+             SQLiteJDBC.doWczytania(pliki);
+             
+         }
       }  
     
     public static void T7(){  // TEST - czy wczytany plik jest w bazie

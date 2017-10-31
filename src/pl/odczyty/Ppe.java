@@ -5,13 +5,31 @@
  */
 package pl.odczyty;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Łukasz Kowalczyk
  */
-public class Ppe {
+
+@Entity
+@Table(name="PPE")
+public class Ppe implements Serializable{
+  @Column(name="ID", unique=true)
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private int ppeId; 
+  @Column(name="PPE", unique=true)  
   private String ppe;
+  @Column(name="LICZNIK_ID")
   private int licznikId;  
+  @Column(name="TARYFA_ID")
   private int taryfaId;
   
   
