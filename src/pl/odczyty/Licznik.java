@@ -10,11 +10,17 @@ package pl.odczyty;
  * @author Łukasz Kowalczyk
  */
 public class Licznik {
-    String nrLicznika;
-    int mnozna;
-    double straty;
+    private String nrLicznika;
+    private int mnozna;
+    private double straty;
     
-    
+   
+
+    public Licznik(String nrLicznika, int mnozna, double straty) {
+        this.nrLicznika = nrLicznika;
+        this.mnozna = mnozna;
+        this.straty = straty;
+    }
     
     
 

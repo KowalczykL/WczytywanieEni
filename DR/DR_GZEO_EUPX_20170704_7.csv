@@ -1,9 +1,0 @@
-DR_GZEO_EUPX_20170704_7.csv;;;;;;;;;;;;;;;
-kOSD;GZEO;;;;;;;;;;;;;;
-kSE;EUPX;;;;;;;;;;;;;;
-DCW;2017-07-04 10:22:07;;;;;;;;;;;;;;
-NR;1;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-PPE;Nr licznika;Kod OT;Taryfa;Strefa;Data od;Data do;Wskazanie poprzednie;Wskazanie biezace;Zuzycie brutto[kWh];Straty[kWh];Mnozna;Wersja danych;Status Odczytu;Status Rozliczenia;Rodzaj Odczytu
-PLGZEO00000590748333000013399861;87064334;0;C21;1;2017-06-01;2017-06-30;187032;200584;13552;0;1;1;Z;O;R
-PLGZEO00000590748333000013400323;94033443;0;C21;1;2017-06-01;2017-06-30;26730;29149;2419;0;1;1;Z;O;R

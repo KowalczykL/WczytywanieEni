@@ -16,7 +16,7 @@ public class SQLiteJDBC {
     public static File[] doWczytania (File[] wejsciowa){
         File[] wyjsciowy = null;
         for (int i=0; i<wejsciowa.length; i++){
-            if(SQLiteJDBC.czyWczytany(wejsciowa[i].toString()));
+            if(SQLiteJDBC.czyWczytanySQ(wejsciowa[i].toString()));
             System.out.println("SQL.doWczyt "+(wejsciowa[i].toString()));
             //wyjsciowy.add(wejsciowa[i].toString());
         }
@@ -30,7 +30,7 @@ public class SQLiteJDBC {
     
     
     
-        public static boolean czyWczytany (String plik){
+        public static boolean czyWczytanySQ (String plik){
         Boolean test = false;
         Connection c = null;
         Statement stmt = null;
