@@ -36,27 +36,27 @@ ArrayList<File> doWczytania;
   
     public FolderOdczytowy(String folder) {
 
-       System.out.println("ListaPlików.konst - parametr konstr"+folder);
+       //System.out.println("ListaPlików.konst - parametr konstr"+folder);
       String dirPathname = folder;
         File directory = new File(dirPathname);
         if(!directory.isDirectory()){
-            System.out.println(dirPathname + " is not directory");
+            //System.out.println(dirPathname + " is not directory");
             } 
         File[] files = directory.listFiles();
-        System.out.println("ListaPlików.konst obj file - "+files.toString());
+        //System.out.println("ListaPlików.konst obj file - "+files.toString());
         this.zawFolderu = files;  
-        System.out.println("ListaPlików.konst - ustawiono pole zawFolderu");
-        System.out.println("ListaPlików.konst - zwraca thisa"+this.zawFolderu);
+        //System.out.println("ListaPlików.konst - ustawiono pole zawFolderu");
+        //System.out.println("ListaPlików.konst - zwraca thisa"+this.zawFolderu);
         for (File pliki1 : this.zawFolderu) {
-             System.out.println("FolderOdc-Listuje zwrocony objekt zawF: "+pliki1.toString());
+             //System.out.println("FolderOdc-Listuje zwrocony objekt zawF: "+pliki1.toString());
              boolean test = czyWczytany(pliki1);
-             System.out.println("Test czy wczytany - "+czyWczytany(pliki1));
+             //System.out.println("Test czy wczytany - "+czyWczytany(pliki1));
              
              
     }
         this.doWczytania = new ArrayList();            
-             System.out.println("Folder - tworze pustego array");
-             System.out.println(this.doWczytania);
+             //System.out.println("Folder - tworze pustego array");
+             //System.out.println(this.doWczytania);
         
         for (File pliki2 : this.zawFolderu) {
             
@@ -100,20 +100,25 @@ ArrayList<File> doWczytania;
          stmt = c.createStatement();
          ResultSet rs;
          rs = stmt.executeQuery("SELECT NAZWA FROM WCZYTANE_PLIKI");
-         System.out.println("Folder.czyW - wynik selecta z bazy"+rs);
+         //System.out.println("Folder.czyW - wynik selecta z bazy: "+rs);
+         
+         
+         //do przebudowy
          while (rs.next()){
          String wyniki = rs.getString("NAZWA");
-          System.out.println("Folder.czyW - wynik 1 linii selecta z bazy"+wyniki);
-         System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
+          //System.out.println("Folder.czyW - wynik 1 linii selecta z bazy"+wyniki);
+         //System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
+          System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
+          System.out.println((plik.getPath()).equals(wyniki.toString()));
           
           if (plik.equals(wyniki)){
-          System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
+          
              test = true;  
-             System.out.println("Plik juz wczytany"+plik);
+             //System.out.println("Plik juz wczytany"+plik);
          }
          else{
               //test = false;
-         System.out.println("Plik do wczytania"+plik);
+         //System.out.println("Plik do wczytania"+plik);
          }
          }
          c.close();
@@ -121,12 +126,14 @@ ArrayList<File> doWczytania;
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
          System.exit(0);
       }
-      System.out.println("SQLiteJDBC,czyEczytany: return - "+test);
+      
        if(!test){
-            System.out.println("SQLiteJDBC.czyWczytany: Do wczytania - "+plik.toString());
+            System.out.println("F_odc.czyWczytany: Do wczytania - "+plik.toString());
         }
-        else{System.out.println("SQLiteJDBC.czyWczytany: Nic do wczytania");}
-      return test; 
+        else{System.out.println("F_odc.czyWczytany: Nic do wczytania");}
+      System.out.println("F_odc,czyEczytany: return - "+test);
+       return test;
+      
       
     }
         
