@@ -64,7 +64,7 @@ public class SQLiteJDBC {
     }
     
     
-      public static void zapiszOdczyt( Odczyt odc ) {
+      public static void zapiszOdczyt( ZuzycieTau odc ) {
       Connection c = null;
       Statement stmt = null;
       
@@ -76,8 +76,8 @@ public class SQLiteJDBC {
          
          stmt = c.createStatement();
          String sql = "INSERT INTO OdczytyT (PPE,DATA,TARYFA,WSKBIE) " +
-                   "VALUES ('"+odc.ppe+"',"+odc.data+",'C12','123');"; 
-                 //  "VALUES ('12', "+odc.data+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
+                   "VALUES ('"+odc.ppe+"',"+odc.dataOd+",'C12','123');"; 
+                 //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);
          stmt.close();
          c.commit();

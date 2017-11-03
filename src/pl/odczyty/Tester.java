@@ -21,7 +21,7 @@ public class Tester {
     //2,1 listuj pliki z folderu zwróć tablice z zawartością w File[]
     //3 Array z plikami do wczytania po wer w bazie z plikami z File[]
     //X3 a moze obiekt lista plikow z polami FOLE[] - do listowania oraz array z tymi do pobrania
-    //
+    // moze obj plik odczytowy z tablicą linijek w postaci stringu i tablicą odczytów z tych linijek
     //
     //
     //
@@ -40,6 +40,21 @@ public class Tester {
     }
      public static void T11(){
      FolderOdczytowy lista = new FolderOdczytowy("TAU/DR");
+     System.out.println("Tester.T11 - wylistuje zawFolderu");
+     for (File pliki1 : lista.zawFolderu) {
+      System.out.println( pliki1);  
+         
+     }
+     
+     System.out.println("Tester.T11 - koniec liswowania zawFolderu");
+     
+     
+     
+     System.out.println("Tester.T11 - wylistuje doWczytania");
+     for (File pliki1 : lista.doWczytania) {
+     System.out.println( pliki1);
+     }
+     System.out.println("Tester.T11 - koniec liswowania doWczytania");
          //for (int i = 0,i<)
 
 //for (File pliki1 : lista.getZawFolderu()) {
@@ -76,8 +91,8 @@ public class Tester {
       }  
     
     public static void T7(){  // TEST - czy wczytany plik jest w bazie
-        //Odczyt odc = new Odczyt("ENI1256", "2017-03-16", "1256985");
-        if (SQLiteJDBC.czyWczytanySQ("plik81") == true){
+        //Odczyt odc = new ZuzycieTau("ENI1256", "2017-03-16", "1256985");
+        if (SQLiteJDBC.czyWczytanySQ("TAU/DR/DR_ENID_EUPX_20170228_1.csv") == true){
             System.out.println("Plik już wczytany");}
         else {System.out.println("Plik do wczytania");}
             
@@ -86,10 +101,11 @@ public class Tester {
         //SQLiteJDBC.czyWczytanySQ("plik123");
     }
    
-     public static void T6(){  // TEST - zapisz objekt
-        Odczyt odc = new Odczyt("ENI1256", "2017-03-16", "1256985");
+     /*public static void T6(){  // TEST - zapisz objekt
+        ZuzycieTau odc = new ZuzycieTau("ENI1256", "2017-03-16", "1256985");
         SQLiteJDBC.zapiszOdczyt(odc);
     }
+*/
     
     
     public static void T5(){  // TEST - tworz tabele
@@ -104,12 +120,12 @@ public class Tester {
     
     
     public static void T3(){  // TEST - de-serializacja  
-        ArrayList<Odczyt> lista = (Deserializer.Deserialize("outputObj.CSV")); 
+        ArrayList<ZuzycieTau> lista = (Deserializer.Deserialize("outputObj.CSV")); 
         System.out.println(lista);        
     }
     
     public static void T2(){  // TEST - serializacja
-       ArrayList<Odczyt> lista = (ImportPliku.Importuj("plik3.CSV")); 
+       ArrayList<ZuzycieTau> lista = (ImportPliku.Importuj("plik3.CSV")); 
         Serializer.Serialize(lista);        
     }
     
@@ -118,10 +134,10 @@ public class Tester {
      */    
     public static void T1(){  //  TEST - Zapis do pliku
     {
-    //Odczyt odc1 = new Odczyt("1","1","1");
+    //Odczyt odc1 = new ZuzycieTau("1","1","1");
         //System.out.println(odc1);
-        ArrayList<Odczyt> lista = (ImportPliku.Importuj("plik3.CSV"));
-        Odczyt odc1= lista.get(7);
+        ArrayList<ZuzycieTau> lista = (ImportPliku.Importuj("plik3.CSV"));
+        ZuzycieTau odc1= lista.get(7);
         System.out.println(lista);
         //ExpToFile.Exportuj(lista);
         ExpToFile.Exportuj(lista.get(3));

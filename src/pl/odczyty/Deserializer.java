@@ -21,11 +21,11 @@ import java.util.logging.Logger;
  */
 public class Deserializer {
     
-    public static ArrayList<Odczyt> Deserialize(String nazwaPliku){
+    public static ArrayList<ZuzycieTau> Deserialize(String nazwaPliku){
         File fin = new File(nazwaPliku);
-        ArrayList<Odczyt> odczytySer = new ArrayList<Odczyt>();
+        ArrayList<ZuzycieTau> odczytySer = new ArrayList<ZuzycieTau>();
         try (ObjectInputStream ois = new ObjectInputStream (new FileInputStream(fin));){
-            odczytySer = (ArrayList<Odczyt>) ois.readObject();            
+            odczytySer = (ArrayList<ZuzycieTau>) ois.readObject();            
         } catch (IOException ex) {
             Logger.getLogger(Serializer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

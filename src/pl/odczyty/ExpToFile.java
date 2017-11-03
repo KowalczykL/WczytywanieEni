@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class ExpToFile {
     
     
-    public static void Exportuj(ArrayList<Odczyt> list){
+    public static void Exportuj(ArrayList<ZuzycieTau> list){
         File fout = new File("output2.CSV");
         FileWriter out = null;
         try {
@@ -43,7 +43,7 @@ public class ExpToFile {
         }
         
     }
-        public static void Exportuj(Odczyt odc){
+        public static void Exportuj(ZuzycieTau odc){
         File fout = new File("output2.CSV");
         FileWriter out = null;
         try {

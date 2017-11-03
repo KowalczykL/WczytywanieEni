@@ -59,9 +59,19 @@ ArrayList<File> doWczytania;
              //System.out.println(this.doWczytania);
         
         for (File pliki2 : this.zawFolderu) {
-            
-            
-                }
+           if(czyWczytany(pliki2)){
+           this.doWczytania.add(pliki2);
+           } 
+           }
+        //System.out.println(this.doWczytania);
+        //for (ArrayList<File> pliki3 : this.zawFolderu) {
+             //System.out.println("FolderOdc-Listuje zwrocony objekt zawF: "+pliki1.toString());
+            // boolean test = czyWczytany(pliki3);
+             //System.out.println("Test czy wczytany - "+czyWczytany(pliki1));
+             
+             
+    //}
+        
         
     }
 
@@ -88,6 +98,7 @@ ArrayList<File> doWczytania;
 //file.getPath();
         }
         public boolean czyWczytany (File plik){
+        String sciezka = plik.toString();
         Boolean test = false;
         Connection c = null;
         Statement stmt = null;
@@ -108,10 +119,10 @@ ArrayList<File> doWczytania;
          String wyniki = rs.getString("NAZWA");
           //System.out.println("Folder.czyW - wynik 1 linii selecta z bazy"+wyniki);
          //System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
-          System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
-          System.out.println((plik.getPath()).equals(wyniki.toString()));
+          //System.out.println( " @#$%^plik"+plik+"- VS -wynik  "+wyniki);
+          //System.out.println(sciezka.equals(wyniki));
           
-          if (plik.equals(wyniki)){
+          if (sciezka.equals(wyniki)){
           
              test = true;  
              //System.out.println("Plik juz wczytany"+plik);
@@ -127,11 +138,11 @@ ArrayList<File> doWczytania;
          System.exit(0);
       }
       
-       if(!test){
-            System.out.println("F_odc.czyWczytany: Do wczytania - "+plik.toString());
-        }
-        else{System.out.println("F_odc.czyWczytany: Nic do wczytania");}
-      System.out.println("F_odc,czyEczytany: return - "+test);
+       //if(!test){
+            //System.out.println("Test: "+test+" ;Plik: "+sciezka+" - do wczytania");
+       // }
+       // else{System.out.println("Test: "+test+" ;Plik: "+sciezka+" - juz wczytany");}
+      //System.out.println("F_odc,czyEczytany: return - "+test);
        return test;
       
       

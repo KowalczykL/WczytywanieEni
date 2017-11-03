@@ -25,9 +25,9 @@ public class ImportPliku {
     
     
     
-    public static ArrayList<Odczyt> Importuj(String nazwaPliku){
+    public static ArrayList<ZuzycieTau> Importuj(String nazwaPliku){
     File f = new File(nazwaPliku);
-    ArrayList<Odczyt> odczytyPliku = new ArrayList<Odczyt>();
+    ArrayList<ZuzycieTau> odczytyPliku = new ArrayList<ZuzycieTau>();
             try (BufferedReader in = new BufferedReader(new FileReader(f));){
     
             String line;
@@ -40,7 +40,7 @@ public class ImportPliku {
             //System.out.print(parts[0]);  
             //System.out.print(";"+parts[6]);
             //System.out.println(";"+parts[8]); 
-            Odczyt odc = new Odczyt(parts[0],parts[6],parts[8]);
+            ZuzycieTau odc = new ZuzycieTau();//(parts[0],parts[6],parts[8]);
             odczytyPliku.add(odc);
             
                  }

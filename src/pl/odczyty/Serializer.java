@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Serializer {  // Serializuj Arraya
     
-     public static void Serialize(Odczyt odc){
+     public static void Serialize(ZuzycieTau odc){
         File fout = new File("outputObj.CSV");
         try (ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream(fout));){
             oos.writeObject(odc);            
@@ -29,7 +29,7 @@ public class Serializer {  // Serializuj Arraya
             
     }
     
-    public static void Serialize(ArrayList<Odczyt> list){
+    public static void Serialize(ArrayList<ZuzycieTau> list){
         File fout = new File("outputObj.CSV");
         try (ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream(fout));){
             oos.writeObject(list);            
