@@ -31,14 +31,24 @@ public class ZuzycieTau implements Serializable{
 
     
     public ZuzycieTau(String linijka) {
+        String[] elem = linijka.split(";");
         
-        
-        
-        
-        
-        
-        
-        
+        this.ppe = elem[0];
+        this.nrLicznika = elem[1];
+        this.kodOt = elem[2];
+        this.taryfa = elem[3];
+        this.strefa = elem[4];
+        this.dataOd = elem[5];
+        this.dataDo = elem[6];
+        this.wskPop = elem[7];
+        this.wskBie = elem[8];
+        this.zuzBru = elem[9];
+        this.straty = elem[10];
+        this.mnozna = elem[11];
+        this.werDanych = elem[12];
+        this.statOdc = elem[13];
+        this.statRozl = elem[14];
+        this.rodzajodc = elem[15];
         
     }
 

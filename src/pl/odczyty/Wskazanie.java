@@ -5,6 +5,11 @@
  */
 package pl.odczyty;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author puszatek
@@ -16,25 +21,70 @@ public class Wskazanie {
     String data;
     String wartosc;
     String rodzaj;
+    String zrodlo;
     int ppeId;
     int licznikI;
     int licznikId;
     int strefaI;
     int wartoscI;
 
-    public Wskazanie(String ppe, String licznik, String strefa, String data, String wartosc, String rodzaj) {
+    
+    
+    
+    
+    
+    public Wskazanie(String ppe, String licznik, String strefa, String data, String wartosc, String rodzaj, String zrodlo) {
         this.ppe = ppe;
         this.licznik = licznik;
         this.strefa = strefa;
         this.data = data;
         this.wartosc = wartosc;
         this.rodzaj = rodzaj;
+        this.zrodlo = zrodlo;
     }
 
     public Wskazanie() {
     }
 
+     public Wskazanie (int id){ //jak wlasciwie działa ten select i rs
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM WSKAZANIA WHERE ID='"+id+"'");
+      
+
+        while (rs.next()){
+            
+            
+
+        this.ppe = (rs.getString("PPE"));
+        
+        
+
+        this.licznik = (rs.getString("LICZNIK"));
+
+        this.strefa = (rs.getString("STREFA"));
+        this.data = (rs.getString("DATA"));
+        this.wartosc = (rs.getString("WARTOSC"));
+        this.rodzaj = (rs.getString("RODZAJ"));
+        this.zrodlo = (rs.getString("ZRODLO"));
+         
+         
+         }
     
+        
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+    
+     }
     
     public Wskazanie(ZuzycieTau zuz){
         
@@ -46,13 +96,75 @@ public class Wskazanie {
         this.rodzaj = rodzaj;   
     }
     
+    public boolean czyIstnieje (Wskazanie wsk){ //jak wlasciwie działa ten select i rs
+    
+        Boolean test = false;
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM WSKAZANIA WHERE PPE='"+this.ppe+"' AND DATA='"+this.data+"' AND WARTOSC='"+this.wartosc+"'");
+      
+      if (rs.next()){
+     
+         test = true;
+        
+       }
+         else{
+   
+           
+           test = false; 
+
+         }
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+       return test;
+     }
     
     
+    
+    
+    public void zapisz (Wskazanie wsk){
+        
+      Connection c = null;
+      Statement stmt = null;
+      
+      try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         System.out.println("Opened database successfully");
+         
+         stmt = c.createStatement();
+         String sql = "INSERT INTO WSKAZANIA (PPE,LICZNIK,DATA,STRFA,WARTOSC,RODZAJ,ZRODLO) " +
+                   "VALUES ('"+wsk.ppe+"','"+wsk.licznik+"','"+wsk.data+"','"+wsk.strefa+"','"+wsk.wartosc+"','"+wsk.rodzaj+"','"+wsk.zrodlo+"');"; 
+                 //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
+         stmt.executeUpdate(sql);
+         stmt.close();
+         c.commit();
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+      System.out.println("Records created successfully");
+   
+}
+    
+    
+   
     
     
     @Override
     public String toString() {
-        return "Wskazanie{" + "ppe=" + ppe + ", licznik=" + licznik + ", strefa=" + strefa + ", data=" + data + ", wartosc=" + wartosc + ", rodzaj=" + rodzaj + '}';
+        return (this.ppe+";"+this.licznik+";"+this.strefa+";"+this.data+";"+this.wartosc+";"+this.rodzaj);
     }
 
     public String getPpe() {

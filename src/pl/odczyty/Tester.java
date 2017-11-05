@@ -7,6 +7,10 @@ package pl.odczyty;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,13 +26,13 @@ public class Tester {
     //3 Array z plikami do wczytania po wer w bazie z plikami z File[]
     //X3 a moze obiekt lista plikow z polami FOLE[] - do listowania oraz array z tymi do pobrania
     // moze obj plik odczytowy z tablicą linijek w postaci stringu i tablicą odczytów z tych linijek
-    //
+    // - arraylisty ze wskazaniami w obj plik odczytowy
     //
     //
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T11();
+          Tester.T14();
     }
     public static void TX(){
     Dystrybutor dyst = new Dystrybutor("TAU");
@@ -38,11 +42,58 @@ public class Tester {
     
     }
     }
+    
+    public static void T14(){
+        Wskazanie wsk = new Wskazanie(297);
+        System.out.println(wsk);
+         wsk = new Wskazanie(291);
+        System.out.println(wsk);
+        
+        
+    }
+    
+    
+    
+    public static boolean T13(){ //jak wlasciwie działa ten select i rs
+    
+        Boolean test = false;
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM WSKAZANIA WHERE PPE='ENID_4081037150' AND DATA='2017-02-20' AND WARTOSC='4181,808'");
+       if (rs.next()){
+         test = true;
+       }
+         else{
+           test = false;  
+         }
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+       return test;
+     }
+    
+    
+    public static void T12(){
+     PlikOdczytowyTau plikodc = new PlikOdczytowyTau("TAU/DR/DR_ENID_EUPX_20170328_6.csv");
+         
+     }
+    
+    
      public static void T11(){
      FolderOdczytowy lista = new FolderOdczytowy("TAU/DR");
      System.out.println("Tester.T11 - wylistuje zawFolderu");
      for (File pliki1 : lista.zawFolderu) {
       System.out.println( pliki1);  
+      
+      
          
      }
      
@@ -53,6 +104,7 @@ public class Tester {
      System.out.println("Tester.T11 - wylistuje doWczytania");
      for (File pliki1 : lista.doWczytania) {
      System.out.println( pliki1);
+     PlikOdczytowyTau plik = new PlikOdczytowyTau(pliki1.getPath());
      }
      System.out.println("Tester.T11 - koniec liswowania doWczytania");
          //for (int i = 0,i<)

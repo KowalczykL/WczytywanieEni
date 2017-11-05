@@ -61,7 +61,7 @@ ArrayList<File> doWczytania;
         for (File pliki2 : this.zawFolderu) {
            if(czyWczytany(pliki2)){
            this.doWczytania.add(pliki2);
-           } 
+           }
            }
         //System.out.println(this.doWczytania);
         //for (ArrayList<File> pliki3 : this.zawFolderu) {
@@ -78,7 +78,9 @@ ArrayList<File> doWczytania;
 
         
 	private static final boolean RECURSIVE = false;
-/**zwraca taklice File[] z zawartością folderu*/
+/**zwraca taklice File[] z zawartością folder
+     * @param sciezka
+     * @return u*/
         
         public static File[] listuj(String sciezka){
             
