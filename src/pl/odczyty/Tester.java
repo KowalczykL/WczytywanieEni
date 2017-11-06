@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,12 +29,12 @@ public class Tester {
     //X3 a moze obiekt lista plikow z polami FOLE[] - do listowania oraz array z tymi do pobrania
     // moze obj plik odczytowy z tablicą linijek w postaci stringu i tablicą odczytów z tych linijek
     // - arraylisty ze wskazaniami w obj plik odczytowy
-    //
+    //dodaj metody do licznika: toString, zapisz, czy istnieje, odtworz
     //
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T14();
+          Tester.T12();
     }
     public static void TX(){
     Dystrybutor dyst = new Dystrybutor("TAU");
@@ -42,6 +44,20 @@ public class Tester {
     
     }
     }
+    
+    
+    
+    
+    
+    
+    public static void T15(){
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+        
+      LocalDate data = LocalDate.parse("2017-02-28", formatter);  
+        System.out.println(data);
+        
+    }
+    
     
     public static void T14(){
         Wskazanie wsk = new Wskazanie(297);
@@ -125,7 +141,7 @@ public class Tester {
      
      
      public static void T9(){ //zapisz licznik
-          Licznik licznik = new Licznik("9656852295", 40, 1.05);
+          Licznik licznik = new Licznik("9656852295", "40", "1.05");
          //LicznikDAO licznikdao = new LicznikDAO();
           boolean zapisz;
          //zapisz = licznikdao.zapisz(licznik);

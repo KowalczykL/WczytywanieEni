@@ -5,25 +5,32 @@
  */
 package pl.odczyty;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
  * @author puszatek
  */
 public class Wskazanie {
+    //public static DateTimeFormatter formTau = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    
     String ppe;
     String licznik;
     String strefa;
     String data;
+    //LocalDate dataLoc = LocalDate.parse(data, this.formTau);
     String wartosc;
     String rodzaj;
     String zrodlo;
     int ppeId;
-    int licznikI;
+    int licznikInt;
     int licznikId;
     int strefaI;
     int wartoscI;
@@ -41,12 +48,14 @@ public class Wskazanie {
         this.wartosc = wartosc;
         this.rodzaj = rodzaj;
         this.zrodlo = zrodlo;
+        //DateTimeFormatter formTau = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //LocalDate dataLoc = LocalDate.parse(data, this.formTau);
     }
 
     public Wskazanie() {
     }
 
-     public Wskazanie (int id){ //jak wlasciwie działa ten select i rs
+     public Wskazanie (int id){ //jak wlasdataLoc = LocalDate.parse(data, formTau);ciwie działa ten select i rs
         Connection c = null;
         Statement stmt = null;
               try {
@@ -131,6 +140,15 @@ public class Wskazanie {
     
     
     
+    public void zapisz (ArrayList<Wskazanie> wsk){
+        for (Wskazanie wsk1 : wsk){
+            wsk1.zapisz(wsk1);
+        } 
+        
+        
+    }
+    
+    
     public void zapisz (Wskazanie wsk){
         
       Connection c = null;
@@ -143,8 +161,10 @@ public class Wskazanie {
          System.out.println("Opened database successfully");
          
          stmt = c.createStatement();
-         String sql = "INSERT INTO WSKAZANIA (PPE,LICZNIK,DATA,STRFA,WARTOSC,RODZAJ,ZRODLO) " +
-                   "VALUES ('"+wsk.ppe+"','"+wsk.licznik+"','"+wsk.data+"','"+wsk.strefa+"','"+wsk.wartosc+"','"+wsk.rodzaj+"','"+wsk.zrodlo+"');"; 
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+         LocalDate dataLoc = LocalDate.parse(this.data, formatter);
+         String sql = "INSERT INTO WSKAZANIA (PPE,LICZNIK,DATA,DATA_LOC,STREFA,WARTOSC,RODZAJ,ZRODLO) " +
+                   "VALUES ('"+wsk.ppe+"','"+wsk.licznik+"','"+wsk.data+"','"+dataLoc+"','"+wsk.strefa+"','"+wsk.wartosc+"','"+wsk.rodzaj+"','"+wsk.zrodlo+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);
          stmt.close();
@@ -224,11 +244,11 @@ public class Wskazanie {
     }
 
     public int getLicznikI() {
-        return licznikI;
+        return licznikInt;
     }
 
     public void setLicznikI(int licznikI) {
-        this.licznikI = licznikI;
+        this.licznikInt = licznikI;
     }
 
     public int getLicznikId() {

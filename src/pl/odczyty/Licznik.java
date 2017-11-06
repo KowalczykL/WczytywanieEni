@@ -11,42 +11,27 @@ package pl.odczyty;
  */
 public class Licznik {
     private String nrLicznika;
-    private int mnozna;
-    private double straty;
+    private String mnozna;
+    private String straty;
+    private int nrLicznikaInt;
+    private byte mnoznaInt;
+    private double stratyInt;
+    private int licznikId;
     
    
 
-    public Licznik(String nrLicznika, int mnozna, double straty) {
+    public Licznik(String nrLicznika, String mnozna, String straty) {
         this.nrLicznika = nrLicznika;
         this.mnozna = mnozna;
         this.straty = straty;
+        this.nrLicznikaInt = Integer.parseInt(nrLicznika);
+        this.mnoznaInt = Byte.parseByte(mnozna);
+        this.stratyInt = Double.parseDouble(straty);
     }
     
     
 
-    public String getNrLicznika() {
-        return nrLicznika;
-    }
 
-    public void setNrLicznika(String nrLicznika) {
-        this.nrLicznika = nrLicznika;
-    }
-
-    public int getMnozna() {
-        return mnozna;
-    }
-
-    public void setMnozna(int mnozna) {
-        this.mnozna = mnozna;
-    }
-
-    public double getStraty() {
-        return straty;
-    }
-
-    public void setStraty(double straty) {
-        this.straty = straty;
-    }
     
     
     

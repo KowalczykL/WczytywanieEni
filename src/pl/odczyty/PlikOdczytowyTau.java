@@ -43,22 +43,24 @@ public class PlikOdczytowyTau {
                  wie++;
                  
                  if (wie>7){
-                 //System.out.println("Plikodc - to jest linijka : "+line);
+                 System.out.println("Plikodc - to jest linijka : "+line);
                 this.linijki.add(line);
                      
                      
                  parts = line.split(";");
-                 //System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
+                 System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
                  ZuzycieTau zuztau = new ZuzycieTau(line);
-                 //System.out.println(zuztau);
+                 System.out.println(zuztau);
                  this.objZuz.add(zuztau);
                  Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
                  this.wskPop.add(wskpop);
-                 
+                 System.out.println("PlikodcOOOOO");
                  Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
+                 if(!wskbie.czyIstnieje(wskbie))
+                 {wskbie.zapisz(wskbie);}
                  this.wskBie.add(wskbie);
                  
-                //System.out.println(objZuz);
+                System.out.println(objZuz);
                  //this.linijki.add(Arrays.toString(parts));
             //System.out.print(parts[0]);  
             //System.out.print(";"+parts[6]);
