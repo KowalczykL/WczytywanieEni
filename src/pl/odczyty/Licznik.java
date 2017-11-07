@@ -64,7 +64,27 @@ public class Licznik {
      }
 
 
-    
+        public static int zwrocId(String licznik){
+        int wynik = -1;
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM LICZNIK WHERE NRLICZNIKA='"+licznik+"'");
+      while (rs.next()){
+        wynik = (rs.getInt("ID"));
+          }
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+              return wynik;
+     }
     
     public boolean czyIstnieje (Licznik licznik){ //jak wlasciwie działa ten select i rs
     Boolean test = false;

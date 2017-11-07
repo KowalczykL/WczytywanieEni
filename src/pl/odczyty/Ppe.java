@@ -44,7 +44,8 @@ public class Ppe implements Serializable{
     }
   
     
-    public Ppe (int id){ //jak wlasciwie działa ten select i rs
+    
+    public Ppe (int id){
         Connection c = null;
         Statement stmt = null;
               try {
@@ -75,7 +76,27 @@ public class Ppe implements Serializable{
             ppe1.zapisz(ppe1);
         }}
     
-    
+    public static int zwrocId(String ppe){
+        int wynik = -1;
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM PPE WHERE PPE='"+ppe+"'");
+      while (rs.next()){
+        wynik = (rs.getInt("ID"));
+          }
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+              return wynik;
+     }
     
         public boolean czyIstnieje (Ppe ppe){ //jak wlasciwie działa ten select i rs
     Boolean test = false;
@@ -113,7 +134,7 @@ public class Ppe implements Serializable{
          stmt = c.createStatement();
          //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          //LocalDate dataLoc = LocalDate.parse(this.data, formatter);
-         String sql = "INSERT INTO PPE (PPE,TARYFA,TARYFAID,DYSTRYBUTOR,DYSTRYBUTOORID,METSZA) " +
+         String sql = "INSERT INTO PPE (PPE,TARYFA,TARYFAID,DYSTRYBUTOR,DYSTRYBUTORID,METSZA) " +
                    "VALUES ('"+this.nrPpe+"','"+this.taryfa+"','"+this.taryfaId+"','"+this.dystrybutor+"','"+this.dystrybutorId+"','"+this.metSza+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);
@@ -126,6 +147,11 @@ public class Ppe implements Serializable{
       }
       System.out.println("Records created successfully");
 }
+
+    @Override
+    public String toString() {
+        return "Ppe{" + "Id=" + Id + ", nrPpe=" + nrPpe + ", taryfa=" + taryfa + ", taryfaId=" + taryfaId + ", dystrybutor=" + dystrybutor + ", dystrybutorId=" + dystrybutorId + ", metSza=" + metSza + '}';
+    }
   
   
   

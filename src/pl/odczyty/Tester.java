@@ -34,7 +34,7 @@ public class Tester {
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T9();
+          Tester.T17();
     }
     public static void TX(){ //testy licznika
     Dystrybutor dyst = new Dystrybutor("TAU");
@@ -45,9 +45,27 @@ public class Tester {
     }
     }
     
+    public static void T17(){ //testy ppe
+        System.out.println(Licznik.zwrocId("124"));
+        Licznik licznik = new Licznik(8);
+        System.out.println(licznik.toString());
+        Licznik licznik2 = new Licznik("124","40",("1,015").replace(",", "."));
+        System.out.println(licznik2.toString());
+        if (!licznik2.czyIstnieje(licznik2))
+                {licznik2.zapisz(licznik2);}
     
+    }
     
-    
+    public static void T16(){ //testy ppe
+        System.out.println(Ppe.zwrocId("ENID_408103715"));
+        Ppe ppe = new Ppe(2);
+        System.out.println(ppe.toString());
+        Ppe ppe2 = new Ppe("125","40","1,015");
+        System.out.println(ppe2.toString());
+        if (!ppe2.czyIstnieje(ppe2))
+                {ppe2.zapisz(ppe2);}
+        
+    }
     
     
     public static void T15(){
