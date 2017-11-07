@@ -55,7 +55,7 @@ public class Wskazanie {
     public Wskazanie() {
     }
 
-     public Wskazanie (int id){ //jak wlasdataLoc = LocalDate.parse(data, formTau);ciwie działa ten select i rs
+     public Wskazanie (int id){ //jak wlasciwie działa ten select i rs
         Connection c = null;
         Statement stmt = null;
               try {

@@ -23,7 +23,9 @@ public class PlikOdczytowyTau {
  ArrayList<String> linijki;
  ArrayList<ZuzycieTau> objZuz;
  ArrayList<Wskazanie> wskPop;  
- ArrayList<Wskazanie> wskBie;     
+ ArrayList<Wskazanie> wskBie; 
+ ArrayList<Licznik> liczniki;
+ ArrayList<Ppe> ppe;
 
     
  public PlikOdczytowyTau(String sciezka) {
@@ -31,6 +33,8 @@ public class PlikOdczytowyTau {
      this.objZuz = new ArrayList<ZuzycieTau>();
      this.wskPop = new ArrayList<Wskazanie>();
      this.wskBie = new ArrayList<Wskazanie>();
+     this.liczniki = new ArrayList<Licznik>();
+     this.ppe = new ArrayList<Ppe>();
      
     File f = new File(sciezka);
     //ArrayList<ZuzycieTau> odczytyPliku = new ArrayList<ZuzycieTau>();
@@ -48,19 +52,28 @@ public class PlikOdczytowyTau {
                      
                      
                  parts = line.split(";");
+                 
                  System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
+                 
                  ZuzycieTau zuztau = new ZuzycieTau(line);
                  System.out.println(zuztau);
                  this.objZuz.add(zuztau);
+                 
                  Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
                  this.wskPop.add(wskpop);
-                 System.out.println("PlikodcOOOOO");
+                 //System.out.println("PlikodcOOOOO");
+                 
                  Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
-                 if(!wskbie.czyIstnieje(wskbie))
-                 {wskbie.zapisz(wskbie);}
+                 //if(!wskbie.czyIstnieje(wskbie))
+                 //{wskbie.zapisz(wskbie);}
                  this.wskBie.add(wskbie);
                  
-                System.out.println(objZuz);
+                 Licznik licznik = new Licznik(parts[1], parts[11], (Integer.toString((Integer.parseInt(parts[11]))/(Integer.parseInt(parts[10]))))  );
+                 this.liczniki.add(licznik);
+                 
+                 //Ppe ppe = new Ppe();
+                 
+                //System.out.println(objZuz);
                  //this.linijki.add(Arrays.toString(parts));
             //System.out.print(parts[0]);  
             //System.out.print(";"+parts[6]);

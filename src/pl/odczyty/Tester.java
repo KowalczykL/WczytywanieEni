@@ -29,14 +29,14 @@ public class Tester {
     //X3 a moze obiekt lista plikow z polami FOLE[] - do listowania oraz array z tymi do pobrania
     // moze obj plik odczytowy z tablicą linijek w postaci stringu i tablicą odczytów z tych linijek
     // - arraylisty ze wskazaniami w obj plik odczytowy
-    //dodaj metody do licznika: toString, zapisz, czy istnieje, odtworz
-    //
+    //LICZNIK - GOTOWY  wiec zapisz wszystkie do bazy dodaj metody do licznika: +toString, +zapisz, +zapiszArray +czyIstnieje, +odtworz
+    //PPE toString, +zapisz, +zapiszArray, +czyIstnieje, *****odtworz, zwroć id
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T12();
+          Tester.T9();
     }
-    public static void TX(){
+    public static void TX(){ //testy licznika
     Dystrybutor dyst = new Dystrybutor("TAU");
     File[] pliki = FolderOdczytowy.listuj(dyst.getFolder());
          for (File pliki1 : pliki) {
@@ -141,9 +141,10 @@ public class Tester {
      
      
      public static void T9(){ //zapisz licznik
-          Licznik licznik = new Licznik("9656852295", "40", "1.05");
+          Licznik licznik = new Licznik(6);
          //LicznikDAO licznikdao = new LicznikDAO();
-          boolean zapisz;
+          System.out.println(licznik.czyIstnieje(licznik));
+          System.out.println(licznik);
          //zapisz = licznikdao.zapisz(licznik);
       } 
      
