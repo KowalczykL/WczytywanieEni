@@ -47,29 +47,32 @@ public class PlikOdczytowyTau {
                  wie++;
                  
                  if (wie>7){
-                 System.out.println("Plikodc - to jest linijka : "+line);
+                 //System.out.println("Plikodc - to jest linijka : "+line);
                 this.linijki.add(line);
                      
                      
                  parts = line.split(";");
                  
-                 System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
+                 //System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
                  
-                 ZuzycieTau zuztau = new ZuzycieTau(line);
-                 System.out.println(zuztau);
-                 this.objZuz.add(zuztau);
+                 //ZuzycieTau zuztau = new ZuzycieTau(line);
+                 //System.out.println(zuztau);
+                 //this.objZuz.add(zuztau);
                  
-                 Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
-                 this.wskPop.add(wskpop);
+                 //Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
+                 //this.wskPop.add(wskpop);
                  //System.out.println("PlikodcOOOOO");
                  
-                 Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
+                 //Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
                  //if(!wskbie.czyIstnieje(wskbie))
                  //{wskbie.zapisz(wskbie);}
-                 this.wskBie.add(wskbie);
+                 //this.wskBie.add(wskbie);
                  
-                 Licznik licznik = new Licznik(parts[1], parts[11], (Integer.toString((Integer.parseInt(parts[11]))/(Integer.parseInt(parts[10]))))  );
-                 this.liczniki.add(licznik);
+                // Licznik licznik = new Licznik(parts[1], parts[11], (Integer.toString((Integer.parseInt(parts[11]))/(Integer.parseInt(parts[10]))))  );
+               //  this.liczniki.add(licznik);
+                // 
+                 Ppe ppe = new Ppe(parts[0], parts[3],"TAU");
+                 this.ppe.add(ppe);
                  
                  //Ppe ppe = new Ppe();
                  
@@ -111,12 +114,13 @@ public class PlikOdczytowyTau {
    // }
     
     // System.out.println("całosc tablicy wskBie"+this.wskBie);
-    for (Wskazanie wsk2 : this.wskBie){
+    //for (Wskazanie wsk2 : this.wskBie){
        //System.out.println("Wylistowany obj linijki wsk Bie: "+wsk2);
        //wsk2.zapisz(wsk2);
-       System.out.println("test czy istnieje:  "+wsk2.czyIstnieje(wsk2));
+      // System.out.println("test czy istnieje:  "+wsk2.czyIstnieje(wsk2));
        
-    }
-    
+    //}
+    System.out.println("Utworzono PlikOdczytowy - "+sciezka);
 }
+ 
 }

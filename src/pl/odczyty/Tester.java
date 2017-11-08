@@ -34,14 +34,25 @@ public class Tester {
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T17();
+          Tester.TX();
     }
-    public static void TX(){ //testy licznika
-    Dystrybutor dyst = new Dystrybutor("TAU");
-    File[] pliki = FolderOdczytowy.listuj(dyst.getFolder());
-         for (File pliki1 : pliki) {
-             System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
+    public static void TX(){
     
+    Dystrybutor tauron = new Dystrybutor("TAU");
+    FolderOdczytowy folder = new FolderOdczytowy(tauron.getFolder());
+    //for (File plik1 : folder.zawFolderu){
+       // System.out.println(plik1.toString());
+     //}
+    
+    for (File plik1: folder.doWczytania){
+        //System.out.println("TX - "+plik1.toString());
+        System.out.println(plik1.toString());
+        PlikOdczytowyTau ppeTau = new PlikOdczytowyTau(plik1.toString());
+        for(Ppe plikTau : ppeTau.ppe){
+        System.out.println(plikTau.toString());
+        if(!plikTau.czyIstnieje(plikTau)){plikTau.zapisz(plikTau);}
+        }
+        
     }
     }
     

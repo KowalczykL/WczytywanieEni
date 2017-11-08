@@ -23,10 +23,8 @@ import javax.persistence.Table;
  * @author Łukasz Kowalczyk
  */
 
-
 public class Ppe implements Serializable{
-
-  private int Id; 
+  private int Id;
   private String nrPpe;
   private String taryfa;
   private int taryfaId;
@@ -56,7 +54,7 @@ public class Ppe implements Serializable{
          ResultSet rs;
          rs = stmt.executeQuery("SELECT * FROM PPE WHERE ID='"+id+"'");
       while (rs.next()){
-        this.nrPpe = (rs.getString("PPE"));
+        this.nrPpe = (rs.getString("NRPPE"));
         this.taryfa = (rs.getString("TARYFA"));
         this.taryfaId = (rs.getInt("TARYFAID"));
         this.dystrybutor = (rs.getString("DYSTRYBUTOR"));
@@ -86,7 +84,7 @@ public class Ppe implements Serializable{
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM PPE WHERE PPE='"+ppe+"'");
+         rs = stmt.executeQuery("SELECT * FROM PPE WHERE NRPPE='"+ppe+"'");
       while (rs.next()){
         wynik = (rs.getInt("ID"));
           }
@@ -134,7 +132,7 @@ public class Ppe implements Serializable{
          stmt = c.createStatement();
          //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          //LocalDate dataLoc = LocalDate.parse(this.data, formatter);
-         String sql = "INSERT INTO PPE (PPE,TARYFA,TARYFAID,DYSTRYBUTOR,DYSTRYBUTORID,METSZA) " +
+         String sql = "INSERT INTO PPE (NRPPE,TARYFA,TARYFAID,DYSTRYBUTOR,DYSTRYBUTORID,METSZA) " +
                    "VALUES ('"+this.nrPpe+"','"+this.taryfa+"','"+this.taryfaId+"','"+this.dystrybutor+"','"+this.dystrybutorId+"','"+this.metSza+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);

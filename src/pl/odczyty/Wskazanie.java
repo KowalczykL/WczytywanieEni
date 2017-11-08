@@ -163,7 +163,7 @@ public class Wskazanie {
          stmt = c.createStatement();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate dataLoc = LocalDate.parse(this.data, formatter);
-         String sql = "INSERT INTO WSKAZANIA (PPE,LICZNIK,DATA,DATA_LOC,STREFA,WARTOSC,RODZAJ,ZRODLO) " +
+         String sql = "INSERT INTO WSKAZANIA (PPE,LICZNIK,DATA,DATALOC,STREFA,WARTOSC,RODZAJ,ZRODLO) " +
                    "VALUES ('"+wsk.ppe+"','"+wsk.licznik+"','"+wsk.data+"','"+dataLoc+"','"+wsk.strefa+"','"+wsk.wartosc+"','"+wsk.rodzaj+"','"+wsk.zrodlo+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);

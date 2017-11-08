@@ -38,8 +38,7 @@ public class Dystrybutor {
     
     public Dystrybutor (String skrot){
         
-       System.out.println("DYST.pobDyst - Otrzymałem parametr"+skrot);
-       //Dystrybutor dyst = new Dystrybutor();
+       //System.out.println("DYST.pobDyst - Otrzymałem parametr"+skrot);
         Connection c = null;
         Statement stmt = null;
         Dystrybutor dyst = null;
@@ -49,50 +48,22 @@ public class Dystrybutor {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM DYST WHERE SKROT='TAU'");
-         System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("NAZWA"));
-         System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("SKROT"));
-         System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("FOLDER"));
+         rs = stmt.executeQuery("SELECT * FROM DYSTRYBUTORZY WHERE SKROT='TAU'");
+         //System.out.println("DYSTRYBUTORZY.pobDyst -NAZWA Dyst z bazy"+rs.getString("NAZWA"));
+         //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("SKROT"));
+         //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("FOLDER"));
          this.nazwa = rs.getString("NAZWA");
          this.skrot = rs.getString("SKROT");
          this.folder = rs.getString("FOLDER");
          
-         
-         
-         
-         
-         //ResultSet rsSkrot;
-         //rsSkrot = stmt.executeQuery("SELECT SKROT FROM DYST");
-         //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rsNazwa.getString("SKROT"));
-         
-         //ResultSet rsFolder;
-         //rsFolder = stmt.executeQuery("SELECT FOLDER FROM DYST WHERE ID=1");
-         //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rsNazwa);
-         
-         //dyst = new Dystrybutor(rs.getString("NAZWA"),rs.getString("SKROT"),rs.getString("FOLDER"));
-         //dyst = new Dystrybutor("NAZWA","SKROT","FOLDER");
-         
-         //System.out.println("DYST.pobDyst -po zbudowaniu obiektu dyst"+dyst);
-         
-         //while (rs.next()){
-         //String wyniki = rs.getString("NAZWA");
-         //if (plik.equals(wyniki)){
-         //    test = true;             
-         //}
-         //}
+
          c.close();
       } catch ( Exception e ) {
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
          System.exit(0);
       }
-      //System.out.println("SQLiteJDBC,czyEczytany: return - "+test);
-        //if(!test){
-        //    System.out.println("SQLiteJDBC.czyWczytany: Do wczytania - "+plik.toString());
-        //}
-        //else{System.out.println("SQLiteJDBC.czyWczytany: Nic do wczytania");}
-      //return dyst; 
-      
-        
+
+       System.out.println("DYST - Utworzono obiekt Dystrybutor - "+this.nazwa+this.skrot+this.folder); 
     }
     
     

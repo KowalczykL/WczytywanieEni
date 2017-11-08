@@ -59,11 +59,13 @@ ArrayList<File> doWczytania;
              //System.out.println(this.doWczytania);
         
         for (File pliki2 : this.zawFolderu) {
-           if(czyWczytany(pliki2)){
+           if(!czyWczytany(pliki2)){
+              //System.out.println("if"); 
            this.doWczytania.add(pliki2);
+           }else{//System.out.println("else");
            }
            }
-        //System.out.println(this.doWczytania);
+        //System.out.println("DO wczyt"+this.doWczytania);
         //for (ArrayList<File> pliki3 : this.zawFolderu) {
              //System.out.println("FolderOdc-Listuje zwrocony objekt zawF: "+pliki1.toString());
             // boolean test = czyWczytany(pliki3);
@@ -72,7 +74,7 @@ ArrayList<File> doWczytania;
              
     //}
         
-        
+       System.out.println("Utworzono obiekt FolderOdczytowy - "+folder); 
     }
 
 
@@ -127,11 +129,11 @@ ArrayList<File> doWczytania;
           if (sciezka.equals(wyniki)){
           
              test = true;  
-             //System.out.println("Plik juz wczytany"+plik);
+             System.out.println("Plik juz wczytany"+plik);
          }
          else{
               //test = false;
-         //System.out.println("Plik do wczytania"+plik);
+         System.out.println("Plik do wczytania"+plik);
          }
          }
          c.close();
