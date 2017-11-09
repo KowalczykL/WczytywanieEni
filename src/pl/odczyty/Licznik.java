@@ -46,7 +46,7 @@ public class Licznik {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM LICZNIK WHERE ID='"+id+"'");
+         rs = stmt.executeQuery("SELECT * FROM LICZNIKI WHERE ID='"+id+"'");
       while (rs.next()){
         this.nrLicznika = (rs.getString("NRLICZNIKA"));
         this.mnozna = (rs.getString("MNOZNA"));
@@ -64,6 +64,38 @@ public class Licznik {
      }
 
 
+    public static double liczStraty (ZuzycieTau zuzycie){
+        return Licznik.liczStraty(zuzycie.straty,zuzycie.zuzBru);
+        /*double straty = 0;
+        double licznik = 0;
+        double mianownik = 0;
+        
+        if (zuzycie.straty != null && !zuzycie.straty.isEmpty()){licznik = Double.parseDouble(zuzycie.straty);}
+        if (zuzycie.zuzBru != null && !zuzycie.zuzBru.isEmpty()){mianownik = Double.parseDouble(zuzycie.zuzBru);}
+        if (licznik == 0 || mianownik == 0){straty = 0;}
+        else{straty = licznik/mianownik;} 
+        return straty;*/
+    }
+    
+        public static double liczStraty (String licznik, String mianownik){
+        double straty = 0;
+        double licznik1 = 0;
+        double mianownik1 = 0;
+        licznik.replace(",", ".");
+        mianownik.replace(",", ".");
+        if (licznik != null && !licznik.isEmpty()){licznik1 = Double.parseDouble(licznik.replace(",", "."));}
+        else{licznik="0";}
+        if (mianownik != null && !mianownik.isEmpty()){mianownik1 = Double.parseDouble(mianownik.replace(",", "."));}
+        else{mianownik="0";}
+        if (licznik1 == 0 || mianownik1 == 0){straty = 0;}
+        else{straty = licznik1/mianownik1;} 
+        return straty;
+    }
+    
+    
+    
+    
+    
         public static int zwrocId(String licznik){
         int wynik = -1;
         Connection c = null;
@@ -74,7 +106,7 @@ public class Licznik {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM LICZNIK WHERE NRLICZNIKA='"+licznik+"'");
+         rs = stmt.executeQuery("SELECT * FROM LICZNIKI WHERE NRLICZNIKA='"+licznik+"'");
       while (rs.next()){
         wynik = (rs.getInt("ID"));
           }
@@ -96,7 +128,7 @@ public class Licznik {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM LICZNIK WHERE NRLICZNIKAINT='"+this.nrLicznikaInt+"'");
+         rs = stmt.executeQuery("SELECT * FROM LICZNIKI WHERE NRLICZNIKAINT='"+this.nrLicznikaInt+"'");
       if (rs.next())
       {test = true;}
          else{test = false;}
@@ -127,7 +159,7 @@ public class Licznik {
          stmt = c.createStatement();
          //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          //LocalDate dataLoc = LocalDate.parse(this.data, formatter);
-         String sql = "INSERT INTO LICZNIK (NRLICZNIKA,MNOZNA,STRATY,NRLICZNIKAINT,MNOZNAINT,STRATYINT) " +
+         String sql = "INSERT INTO LICZNIKI (NRLICZNIKA,MNOZNA,STRATY,NRLICZNIKAINT,MNOZNAINT,STRATYINT) " +
                    "VALUES ('"+licznik.nrLicznika+"','"+licznik.mnozna+"','"+licznik.straty+"','"+licznik.nrLicznikaInt+"','"+licznik.mnoznaInt+"','"+licznik.stratyInt+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);

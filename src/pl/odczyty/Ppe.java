@@ -69,7 +69,7 @@ public class Ppe implements Serializable{
       }
      }
     
-    public void zapisz (ArrayList<Ppe> ppe){
+    public static void zapisz(ArrayList<Ppe> ppe){
         for (Ppe ppe1 : ppe){
             ppe1.zapisz(ppe1);
         }}
@@ -106,7 +106,7 @@ public class Ppe implements Serializable{
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM PPE WHERE PPE='"+this.nrPpe+"'");
+         rs = stmt.executeQuery("SELECT * FROM PPE WHERE NRPPE='"+this.nrPpe+"'");
       if (rs.next())
       {test = true;}
          else{test = false;}

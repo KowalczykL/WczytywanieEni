@@ -55,21 +55,21 @@ public class PlikOdczytowyTau {
                  
                  //System.out.println("Plikodc - to jest Array : "+Arrays.toString(parts));
                  
-                 //ZuzycieTau zuztau = new ZuzycieTau(line);
+                 ZuzycieTau zuztau = new ZuzycieTau(line);
                  //System.out.println(zuztau);
-                 //this.objZuz.add(zuztau);
+                 this.objZuz.add(zuztau);
                  
-                 //Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
-                 //this.wskPop.add(wskpop);
+                 Wskazanie wskpop = new Wskazanie(parts[0],parts[1],parts[4],parts[5],parts[7],"PLIK",sciezka);
+                 this.wskPop.add(wskpop);
                  //System.out.println("PlikodcOOOOO");
                  
-                 //Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
+                 Wskazanie wskbie = new Wskazanie(parts[0],parts[1],parts[4],parts[6],parts[8],"PLIK",sciezka);
                  //if(!wskbie.czyIstnieje(wskbie))
                  //{wskbie.zapisz(wskbie);}
-                 //this.wskBie.add(wskbie);
-                 
-                // Licznik licznik = new Licznik(parts[1], parts[11], (Integer.toString((Integer.parseInt(parts[11]))/(Integer.parseInt(parts[10]))))  );
-               //  this.liczniki.add(licznik);
+                 this.wskBie.add(wskbie);
+                 //System.out.println("test liczenia strat"+Double.toString(Licznik.liczStraty(zuztau)));
+                 Licznik licznik = new Licznik(parts[1], parts[11], Double.toString(Licznik.liczStraty(zuztau))  );
+                 this.liczniki.add(licznik);
                 // 
                  Ppe ppe = new Ppe(parts[0], parts[3],"TAU");
                  this.ppe.add(ppe);

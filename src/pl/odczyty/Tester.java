@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,15 +47,57 @@ public class Tester {
     
     for (File plik1: folder.doWczytania){
         //System.out.println("TX - "+plik1.toString());
-        System.out.println(plik1.toString());
-        PlikOdczytowyTau ppeTau = new PlikOdczytowyTau(plik1.toString());
-        for(Ppe plikTau : ppeTau.ppe){
-        System.out.println(plikTau.toString());
-        if(!plikTau.czyIstnieje(plikTau)){plikTau.zapisz(plikTau);}
+        System.out.println("wydruk obj plik1"+plik1.toString());
+        PlikOdczytowyTau objPlik = new PlikOdczytowyTau(plik1.toString());
+        //objPlik.ppe.
+        //objPpe
+        System.out.println("objPlik.ppe"+objPlik.ppe);
+        //Ppe.zapisz(objPlik.ppe);
+        for(Ppe objPpe : objPlik.ppe){
+             if(!objPpe.czyIstnieje(objPpe)){objPpe.zapisz(objPpe);}
         }
+        
+        System.out.println(("objPlik.licznik"+objPlik.liczniki));
+        for(Licznik objLicznik : objPlik.liczniki){
+             if(!objLicznik.czyIstnieje(objLicznik)){objLicznik.zapisz(objLicznik);}
+        }
+        
+        System.out.println(("objPlik.objZuz"+objPlik.objZuz.toString()));
+        // for(ZuzycieTau objZuz : objPlik.objZuz){
+          //   if(!objZuz.czyIstnieje(objZuz)){objZuz.zapisz(objZuz);}
+        
+        System.out.println(("objPlik.linijki"+objPlik.linijki.toString()));
+        System.out.println(("objPlik.wskBie"+objPlik.wskPop.toString()));
+        System.out.println(("objPlik.wskBie"+objPlik.wskBie.toString()));
+        for(Wskazanie objWskBie : objPlik.wskBie){
+             if(!objWskBie.czyIstnieje(objWskBie)){objWskBie.zapisz(objWskBie);}
+        }
+        
+        
+        //objPlik.ppe.zapisz(objPlik.ppe);
+        //(objPlik.liczniki).zapisz(objPlik.liczniki);
+        
+        
+        
+        
+        
+        
+        
+//       for(Ppe plikTau : objPlik.ppe){
+//        //System.out.println(plikTau.toString());
+//        if(!plikTau.czyIstnieje(plikTau)){plikTau.zapisz(plikTau);}
+//        }
         
     }
     }
+    
+    
+    public static void T18(){
+   System.out.println(Licznik.liczStraty("101,1","100"));
+    
+    }
+    
+    
     
     public static void T17(){ //testy ppe
         System.out.println(Licznik.zwrocId("124"));
