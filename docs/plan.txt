@@ -1,0 +1,9 @@
+- pole w ppe lub wskazaniu ze srednim dziennym zy¿yciem - mozna u¿yæ do szybkiego szacowania zu¿ycia za reszte dni,
+- jeden "PlikOdczytowy"/"FolderOdczytowy" dla wszystkich dystrybutorów z ró¿nym konstruktorem w zale¿noœci od dystrybutora (objekt),
+- przekazywanie obj dyst do fold odc
+- obs³u¿yæ w ppw taryfeid i dystrybutorid
+- dystrybutor zwróæ id
+- zrobic wreszci interfejs
+- zredagowac argumenty metod z interfejsu
+
+
