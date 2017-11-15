@@ -18,11 +18,13 @@ public class Dystrybutor {
     private String nazwa;
     private String skrot;
     private String folder;
+    private String fxls;
 
-    public Dystrybutor(String nazwa, String skrot, String folder) {
+    public Dystrybutor(String nazwa, String skrot, String folder, String fxls) {
         this.nazwa = nazwa;
         this.skrot = skrot;
         this.folder = folder;
+        this.fxls = fxls;
     }
 
     public Dystrybutor() {
@@ -48,13 +50,15 @@ public class Dystrybutor {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM DYSTRYBUTORZY WHERE SKROT='TAU'");
+         rs = stmt.executeQuery("SELECT * FROM DYSTRYBUTORZY WHERE SKROT='"+skrot+"'");
          //System.out.println("DYSTRYBUTORZY.pobDyst -NAZWA Dyst z bazy"+rs.getString("NAZWA"));
          //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("SKROT"));
-         //System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("FOLDER"));
+         System.out.println("DYST.pobDyst -NAZWA Dyst z bazy"+rs.getString("FXLS"));
          this.nazwa = rs.getString("NAZWA");
          this.skrot = rs.getString("SKROT");
          this.folder = rs.getString("FOLDER");
+         this.fxls = rs.getString("FXLS");
+         
          
 
          c.close();
@@ -63,7 +67,7 @@ public class Dystrybutor {
          System.exit(0);
       }
 
-       System.out.println("DYST - Utworzono obiekt Dystrybutor - "+this.nazwa+this.skrot+this.folder); 
+       System.out.println("DYST - Utworzono obiekt Dystrybutor - "+this.nazwa+this.skrot+this.folder+this.fxls); 
     }
     
     
@@ -89,6 +93,14 @@ public class Dystrybutor {
 
     public void setFolderPlikow(String folderPlikow) {
         this.folder = folderPlikow;
+    }
+
+    public String getFxls() {
+        return fxls;
+    }
+
+    public void setFxls(String fxls) {
+        this.fxls = fxls;
     }
     
     

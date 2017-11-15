@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import static java.time.LocalDate.now;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +37,7 @@ public class Tester {
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.TX();
+          Tester.T19();
     }
     public static void TX(){
     
@@ -91,6 +93,16 @@ public class Tester {
     }
     }
     
+    
+    
+    
+    public static void T19(){ //konwerter xls - csv
+  // XlstoCsv.xls("test.xls","output.csv");
+        
+                Dystrybutor dyst = new Dystrybutor("RWE");
+                System.out.println(dyst.getFxls());
+   Converter.convert(dyst);
+    }
     
     public static void T18(){
    System.out.println(Licznik.liczStraty("101,1","100"));
