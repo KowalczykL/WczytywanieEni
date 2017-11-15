@@ -41,7 +41,7 @@ public class Converter {
                
                data = LocalDateTime.now();
                dataS = data.format(formatter);;
-               plikout = new File(folderOut+"/"+dataS+".csv");
+               plikout = new File(folderOut+"/"+dystrybutor.getSkrot()+"-"+dataS+".csv");
                
            Converter.xlstoCsv(plik, plikout);
            }

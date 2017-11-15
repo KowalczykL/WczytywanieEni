@@ -99,9 +99,12 @@ public class Tester {
     public static void T19(){ //konwerter xls - csv
   // XlstoCsv.xls("test.xls","output.csv");
         
-                Dystrybutor dyst = new Dystrybutor("RWE");
-                System.out.println(dyst.getFxls());
-   Converter.convert(dyst);
+   //             Dystrybutor dyst = new Dystrybutor("RWE");
+   //             System.out.println(dyst.getFxls());
+   //Converter.convert(dyst);
+   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/RWE-20171115-2203.csv");
+   
+   
     }
     
     public static void T18(){
