@@ -101,8 +101,8 @@ public class Tester {
         
    //             Dystrybutor dyst = new Dystrybutor("RWE");
    //             System.out.println(dyst.getFxls());
-   //Converter.convert(dyst);
-   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/RWE-20171115-2203.csv");
+  // Converter.convert(dyst);
+   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/ko.csv");
    
    
     }

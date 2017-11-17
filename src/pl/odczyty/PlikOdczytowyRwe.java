@@ -41,67 +41,89 @@ public class PlikOdczytowyRwe {
    try (BufferedReader in = new BufferedReader(new FileReader(f));){
     
             String line;
+            //boolean e = false;
             Boolean flaga = false;
             String[] parts;
             String[] pomocniczy = new String[5];
             int wie = 0;
             while ((line=in.readLine())!=null){
+                 
                 
-                
-                
-                
-                
-                if (wie>30) {wie = 0;
-                flaga = false;
-                }
+
                 
                  
             parts = line.split(";");
             
             for(String out : parts){
                 if(!out.isEmpty()){
-                 if (flaga) {wie++;}     
+                  
                     
                  if (out.contains("P+")){
                      flaga = true;
                      wie = 1;
                  }
-                 switch (wie){
+                    //System.out.println("przod --  "+wie+"  -  "+out+"  -  "+wie);
+                
+                 
+//                 if (out.contains("E")&&wie>13){
+//                     e = true;
+//                 }
+                 
+                 
+                if (flaga) {
+                 //System.out.println(wie+out+wie);
+                
+                    if  (out.equals("E")||out.equals("ZD"))
+                    {
+                    wie--;
+                    }
+                }
+                 switch (wie)
+                    {
                      case 1:
-                   System.out.println("PPE - <"+out.substring(5,38)+">");  
+                   System.out.println(wie+"PPE - <"+out+">");  //.substring(5,38)
                      break;
                      case 12:
-                    System.out.println("DATA - <"+out+">");  
+                    System.out.println(wie+"DATA - <"+out+">");  
                      break;          
                      case 13:
-                    System.out.println("WSKAZANIE - <"+out+">");  
+                    if (!out.equals("E")){System.out.println(wie+"WSKAZANIE - <"+out+">");}  
                      break;                             
                      case 18:
-                    System.out.println("LICZNIK - <"+out+">");  
+                    System.out.println(wie+"LICZNIK - <"+out+">"); 
                      break;                             
                      case 22:
-                    System.out.println("MNOZNA - <"+out+">");  
+                    System.out.println(wie+"MNOZNA - <"+out+">");  
                      break;
-                    // case 12:
-                    //System.out.println(" - "+out);  
-                    // break;
-                 }
+                    }
+
+                     
                          
-                         
-                 
+                    if (flaga) 
+                    {
+                    wie++;
+                    } 
+
+                    if (wie>24) 
+                    {
+                    wie = 0;
+                    flaga = false;
+                    }
+                
+                }//koniec if empty
            // System.out.print(out);  
-            //System.out.println("next"+wie);
+           // System.out.println("next"+wie);
             
-            }     
-            }
-            
+            } //koniec petli iterujacej po niepustych komórkach    
+            }// koniec while
+            }//koniec try
             
             
                  
                  
                  
-            }
-   } catch (FileNotFoundException ex) {
+            
+    catch (FileNotFoundException ex) {
          Logger.getLogger(PlikOdczytowyRwe.class.getName()).log(Level.SEVERE, null, ex);
      } catch (IOException ex) {
          Logger.getLogger(PlikOdczytowyRwe.class.getName()).log(Level.SEVERE, null, ex);
