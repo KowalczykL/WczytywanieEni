@@ -32,12 +32,17 @@ public class Ppe implements Serializable{
   private int dystrybutorId;
   private int metSza;
 
+    public Ppe() {
+    }
+
+  
+  
     public Ppe(String ppe, String taryfa, String dystrybutor) {
         this.nrPpe = ppe;
         this.taryfa = taryfa;
         //this.taryfaId = taryfaId;
         this.dystrybutor = dystrybutor;
-        //this.dystrybutorId = dystrybutorId;
+        this.dystrybutorId = Dystrybutor.zwrocId(dystrybutor);
         this.metSza = 1;
     }
   
@@ -71,7 +76,7 @@ public class Ppe implements Serializable{
     
     public static void zapisz(ArrayList<Ppe> ppe){
         for (Ppe ppe1 : ppe){
-            ppe1.zapisz(ppe1);
+            if (!ppe1.czyIstnieje(ppe1)){ppe1.zapisz(ppe1);}
         }}
     
     public static int zwrocId(String ppe){
@@ -115,7 +120,10 @@ public class Ppe implements Serializable{
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
          System.exit(0);
       }
-       return test;
+       
+              if(test){System.out.println("Ppe.czyIstnieje -- juz istnieje");}
+              else {System.out.println("Ppe.czyIstnieje -- nie istnieje - ZAPISZ");}    
+              return test;
      }
     
   public void zapisz(Ppe ppe){

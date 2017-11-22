@@ -21,23 +21,38 @@ import static javassist.compiler.TokenId.BREAK;
  */
 public class PlikOdczytowyRwe {
     
- ArrayList<String> linijki;
+ //ArrayList<String> linijki;
 // ArrayList<ZuzycieTau> objZuz;
 // ArrayList<Wskazanie> wskPop;  
  ArrayList<Wskazanie> wskBie; 
- ArrayList<Licznik> liczniki;
- ArrayList<Ppe> ppe;
-    
+ ArrayList<Licznik> licznikiL;
+ ArrayList<Ppe> ppeL;
+
+     String ppeS;
+     String taryfaS;
+     String dystrybutorS = "RWE";
+     int metSzaInt = 1; 
+     String licznikS;
+     String dataS;
+     String wskazanieS;
+     String rodzajS = "PLIK";
+     String zrodloS;
+     String strefaS = "1";
+     String mnoznaS;
+     String stratyS = "0";
+             
+             
    public PlikOdczytowyRwe(String sciezka) {
-     this.linijki = new ArrayList<String>();
+     //this.linijki = new ArrayList<String>();
 //     this.objZuz = new ArrayList<ZuzycieTau>();
 //     this.wskPop = new ArrayList<Wskazanie>();
      this.wskBie = new ArrayList<Wskazanie>();
-     this.liczniki = new ArrayList<Licznik>();
-     this.ppe = new ArrayList<Ppe>();
+     this.licznikiL = new ArrayList<Licznik>();
+     this.ppeL = new ArrayList<Ppe>();
+
    
    File f = new File(sciezka);
-     
+   zrodloS = sciezka;  
    try (BufferedReader in = new BufferedReader(new FileReader(f));){
     
             String line;
@@ -62,13 +77,6 @@ public class PlikOdczytowyRwe {
                      flaga = true;
                      wie = 1;
                  }
-                    //System.out.println("przod --  "+wie+"  -  "+out+"  -  "+wie);
-                
-                 
-//                 if (out.contains("E")&&wie>13){
-//                     e = true;
-//                 }
-                 
                  
                 if (flaga) {
                  //System.out.println(wie+out+wie);
@@ -81,19 +89,28 @@ public class PlikOdczytowyRwe {
                  switch (wie)
                     {
                      case 1:
-                   System.out.println(wie+"PPE - <"+out+">");  //.substring(5,38)
-                     break;
+                         ppeS = out.substring(5,38);
+                         taryfaS = out.substring(0,3);
+                   System.out.println(wie+"PPE - <"+ppeS+">");  //.substring(5,38)
+                   System.out.println(wie+"PPE - <"+taryfaS+">");  
+                   break;
                      case 12:
-                    System.out.println(wie+"DATA - <"+out+">");  
+                         dataS = out;
+                    System.out.println(wie+"DATA - <"+dataS+">");  
                      break;          
                      case 13:
-                    if (!out.equals("E")){System.out.println(wie+"WSKAZANIE - <"+out+">");}  
+                    if (!out.equals("E")){
+                        wskazanieS = out;
+                        System.out.println(wie+"WSKAZANIE - <"+wskazanieS+">");
+                    }  
                      break;                             
                      case 18:
-                    System.out.println(wie+"LICZNIK - <"+out+">"); 
+                         licznikS = out;
+                    System.out.println(wie+"LICZNIK - <"+licznikS+">"); 
                      break;                             
                      case 22:
-                    System.out.println(wie+"MNOZNA - <"+out+">");  
+                         mnoznaS = out;
+                    System.out.println(wie+"MNOZNA - <"+mnoznaS+">");  
                      break;
                     }
 
@@ -106,6 +123,11 @@ public class PlikOdczytowyRwe {
 
                     if (wie>24) 
                     {
+                    Ppe ppeO = new Ppe(ppeS,taryfaS,dystrybutorS);
+                    this.ppeL.add(ppeO);
+                    Licznik licznikO = new Licznik(licznikS, mnoznaS, stratyS);
+                    this.licznikiL.add(licznikO);
+                    
                     wie = 0;
                     flaga = false;
                     }

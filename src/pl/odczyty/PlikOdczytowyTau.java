@@ -36,6 +36,8 @@ public class PlikOdczytowyTau {
      this.liczniki = new ArrayList<Licznik>();
      this.ppe = new ArrayList<Ppe>();
      
+
+     
     File f = new File(sciezka);
     //ArrayList<ZuzycieTau> odczytyPliku = new ArrayList<ZuzycieTau>();
             try (BufferedReader in = new BufferedReader(new FileReader(f));){

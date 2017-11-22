@@ -25,6 +25,9 @@ public class Licznik {
     private int mnoznaInt;
     private double stratyInt;
     private int Id;
+
+    public Licznik() {
+    }
     
    
 
@@ -137,12 +140,17 @@ public class Licznik {
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
          System.exit(0);
       }
+              if(test){System.out.println("Ppe.czyIstnieje -- juz istnieje");}
+              else {System.out.println("Ppe.czyIstnieje -- nie istnieje - ZAPISZ");}                 
+              
        return test;
+       
      }
     
-    public void zapisz (ArrayList<Licznik> licznik){
+    public static void zapisz (ArrayList<Licznik> licznik){
         for (Licznik licznik1 : licznik){
-            licznik1.zapisz(licznik1);
+        if (!licznik1.czyIstnieje(licznik1)){licznik1.zapisz(licznik1);}
+
         }
     }
     public void zapisz (Licznik licznik){

@@ -77,7 +77,7 @@ public class Tester {
         
         
         //objPlik.ppe.zapisz(objPlik.ppe);
-        //(objPlik.liczniki).zapisz(objPlik.liczniki);
+        //(objPlik.licznikiL).zapisz(objPlik.licznikiL);
         
         
         
@@ -103,12 +103,23 @@ public class Tester {
    //             System.out.println(dyst.getFxls());
   // Converter.convert(dyst);
    PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/ko.csv");
-   
-   
+   System.out.println("T19; array ppeL "+plikRwe.ppeL.toArray());
+   for(Licznik licznikRob: plikRwe.licznikiL){
+       System.out.println(licznikRob.toString());
+   }
+   Licznik.zapisz(plikRwe.licznikiL);
+   Ppe.zapisz(plikRwe.ppeL);   
     }
     
     public static void T18(){
-   System.out.println(Licznik.liczStraty("101,1","100"));
+   //System.out.println(Licznik.liczStraty("101,1","100"));
+    //System.out.println(Dystrybutor.zwrocId("TAU"));
+    String co = "*";
+    String gdzie = "PPE";
+    String where = "DYSTRYBUTOR = RWE";
+    String komenda = "DELETE FROM PPE WHERE DYSTRYBUTOR = 'RWE'";
+    
+    Deleter.delete(komenda);
     
     }
     
