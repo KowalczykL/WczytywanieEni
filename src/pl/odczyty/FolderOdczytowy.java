@@ -34,6 +34,11 @@ ArrayList<File> doWczytania;
         return "ListaPlikow{" + "zawFolderu=" + zawFolderu + ", doWczytania=" + doWczytania + '}';
     }
   
+    public FolderOdczytowy(Dystrybutor dystrybutor) {
+        this(dystrybutor.getFolder());   
+    }
+    
+    
     public FolderOdczytowy(String folder) {
 
        //System.out.println("ListaPlików.konst - parametr konstr"+folder);

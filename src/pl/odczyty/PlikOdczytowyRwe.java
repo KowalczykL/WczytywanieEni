@@ -24,9 +24,9 @@ public class PlikOdczytowyRwe {
  //ArrayList<String> linijki;
 // ArrayList<ZuzycieTau> objZuz;
 // ArrayList<Wskazanie> wskPop;  
- ArrayList<Wskazanie> wskBie; 
- ArrayList<Licznik> licznikiL;
- ArrayList<Ppe> ppeL;
+ ArrayList<Wskazanie> wskBieArrayL; 
+ ArrayList<Licznik> licznikiArrayL;
+ ArrayList<Ppe> ppeArrayL;
 
      String ppeS;
      String taryfaS;
@@ -41,14 +41,18 @@ public class PlikOdczytowyRwe {
      String mnoznaS;
      String stratyS = "0";
              
-             
+  public PlikOdczytowyRwe(File inputFilePath) {
+      this(inputFilePath.getPath());
+  }
+     
+     
    public PlikOdczytowyRwe(String sciezka) {
      //this.linijki = new ArrayList<String>();
 //     this.objZuz = new ArrayList<ZuzycieTau>();
 //     this.wskPop = new ArrayList<Wskazanie>();
-     this.wskBie = new ArrayList<Wskazanie>();
-     this.licznikiL = new ArrayList<Licznik>();
-     this.ppeL = new ArrayList<Ppe>();
+     this.wskBieArrayL = new ArrayList<Wskazanie>();
+     this.licznikiArrayL = new ArrayList<Licznik>();
+     this.ppeArrayL = new ArrayList<Ppe>();
 
    
    File f = new File(sciezka);
@@ -95,7 +99,7 @@ public class PlikOdczytowyRwe {
                    System.out.println(wie+"PPE - <"+taryfaS+">");  
                    break;
                      case 12:
-                         dataS = out;
+                         dataS = out.substring(0, 10);
                     System.out.println(wie+"DATA - <"+dataS+">");  
                      break;          
                      case 13:
@@ -124,10 +128,11 @@ public class PlikOdczytowyRwe {
                     if (wie>24) 
                     {
                     Ppe ppeO = new Ppe(ppeS,taryfaS,dystrybutorS);
-                    this.ppeL.add(ppeO);
+                    this.ppeArrayL.add(ppeO);
                     Licznik licznikO = new Licznik(licznikS, mnoznaS, stratyS);
-                    this.licznikiL.add(licznikO);
-                    
+                    this.licznikiArrayL.add(licznikO);
+                    Wskazanie wskO = new Wskazanie(ppeS, licznikS, strefaS, dataS, wskazanieS, rodzajS, zrodloS);
+                    this.wskBieArrayL.add(wskO);
                     wie = 0;
                     flaga = false;
                     }
@@ -138,7 +143,7 @@ public class PlikOdczytowyRwe {
             
             } //koniec petli iterujacej po niepustych komórkach    
             }// koniec while
-            }//koniec try
+            }//koniec try//koniec try//koniec try//koniec try
             
             
                  

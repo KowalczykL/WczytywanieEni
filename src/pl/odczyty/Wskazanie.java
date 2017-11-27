@@ -107,7 +107,7 @@ public class Wskazanie {
         this.rodzaj = rodzaj;   
     }
     
-    public boolean czyIstnieje (Wskazanie wsk){ //jak wlasciwie działa ten select i rs
+    public static boolean czyIstnieje (Wskazanie wsk){ //jak wlasciwie działa ten select i rs
     
         Boolean test = false;
         Connection c = null;
@@ -118,7 +118,7 @@ public class Wskazanie {
          c.setAutoCommit(false);
          stmt = c.createStatement();
          ResultSet rs;
-         rs = stmt.executeQuery("SELECT * FROM WSKAZANIA WHERE PPE='"+this.ppe+"' AND DATA='"+this.data+"' AND WARTOSC='"+this.wartosc+"'");
+         rs = stmt.executeQuery("SELECT * FROM WSKAZANIA WHERE PPE='"+wsk.ppe+"' AND DATA='"+wsk.data+"' AND WARTOSC='"+wsk.wartosc+"'");
       
       if (rs.next()){
      
@@ -142,16 +142,18 @@ public class Wskazanie {
     
     
     
-    public void zapisz (ArrayList<Wskazanie> wsk){
-        for (Wskazanie wsk1 : wsk){
-            wsk1.zapisz(wsk1);
+    public static void zapisz (ArrayList<Wskazanie> wsk, Dystrybutor dyst){
+        for (Wskazanie wskTemp : wsk){
+            if(!Wskazanie.czyIstnieje(wskTemp))
+            {Wskazanie.zapisz(wskTemp, dyst);
+            }
         } 
         
         
     }
     
     
-    public void zapisz (Wskazanie wsk){
+    public static void zapisz (Wskazanie wsk, Dystrybutor dyst){
         
       Connection c = null;
       Statement stmt = null;
@@ -163,8 +165,8 @@ public class Wskazanie {
          System.out.println("Opened database successfully");
          
          stmt = c.createStatement();
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-         LocalDate dataLoc = LocalDate.parse(this.data, formatter);
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dyst.getDataFormat());
+         LocalDate dataLoc = LocalDate.parse(wsk.data, formatter);
          String sql = "INSERT INTO WSKAZANIA (PPE,PPEID,LICZNIK,LICZNIKID,DATA,DATALOC,STREFA,WARTOSC,RODZAJ,ZRODLO) " +
                    "VALUES ('"+wsk.ppe+"','"+wsk.ppeId+"','"+wsk.licznik+"','"+wsk.licznikId+"','"+wsk.data+"','"+dataLoc+"','"+wsk.strefa+"','"+wsk.wartosc+"','"+wsk.rodzaj+"','"+wsk.zrodlo+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 

@@ -28,6 +28,11 @@ public class PlikOdczytowyTau {
  ArrayList<Ppe> ppe;
 
     
+  public PlikOdczytowyTau(File inputFilePath) {
+      this(inputFilePath.getPath());
+  }
+ 
+ 
  public PlikOdczytowyTau(String sciezka) {
      this.linijki = new ArrayList<String>();
      this.objZuz = new ArrayList<ZuzycieTau>();

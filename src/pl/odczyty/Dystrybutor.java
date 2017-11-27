@@ -19,6 +19,7 @@ public class Dystrybutor {
     private String skrot;
     private String folder;
     private String fxls;
+    private String dataFormat;
 
     public Dystrybutor(String nazwa, String skrot, String folder, String fxls) {
         this.nazwa = nazwa;
@@ -58,6 +59,7 @@ public class Dystrybutor {
          this.skrot = rs.getString("SKROT");
          this.folder = rs.getString("FOLDER");
          this.fxls = rs.getString("FXLS");
+         this.dataFormat = rs.getString("PARSER");
          
          
 
@@ -122,6 +124,14 @@ public class Dystrybutor {
 
     public void setFxls(String fxls) {
         this.fxls = fxls;
+    }
+
+    public String getDataFormat() {
+        return dataFormat;
+    }
+
+    public void setDataFormat(String dataFormat) {
+        this.dataFormat = dataFormat;
     }
     
     

@@ -37,7 +37,7 @@ public class Tester {
     //
     //
      public static void testuj(){  // TEST - test do wykonania
-          Tester.T19();
+          Tester.T20();
     }
     public static void TX(){
     
@@ -72,12 +72,12 @@ public class Tester {
         System.out.println(("objPlik.wskBie"+objPlik.wskPop.toString()));
         System.out.println(("objPlik.wskBie"+objPlik.wskBie.toString()));
         for(Wskazanie objWskBie : objPlik.wskBie){
-             if(!objWskBie.czyIstnieje(objWskBie)){objWskBie.zapisz(objWskBie);}
+         //    if(!objWskBie.czyIstnieje(objWskBie)){objWskBie.zapisz(objWskBie);}
         }
         
         
         //objPlik.ppe.zapisz(objPlik.ppe);
-        //(objPlik.licznikiL).zapisz(objPlik.licznikiL);
+        //(objPlik.licznikiArrayL).zapisz(objPlik.licznikiArrayL);
         
         
         
@@ -93,22 +93,27 @@ public class Tester {
     }
     }
     
-    
+    public static void T20(){
+        Dystrybutor dystrybutor = new Dystrybutor("RWE");
+       Loader.loadDataFromFolder(dystrybutor);
+        
+        
+    }    
     
     
     public static void T19(){ //konwerter xls - csv
-  // XlstoCsv.xls("test.xls","output.csv");
+   //XlstoCsv.xls("test.xls","output.csv");
         
-   //             Dystrybutor dyst = new Dystrybutor("RWE");
-   //             System.out.println(dyst.getFxls());
-  // Converter.convert(dyst);
-   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/ko.csv");
-   System.out.println("T19; array ppeL "+plikRwe.ppeL.toArray());
-   for(Licznik licznikRob: plikRwe.licznikiL){
-       System.out.println(licznikRob.toString());
-   }
-   Licznik.zapisz(plikRwe.licznikiL);
-   Ppe.zapisz(plikRwe.ppeL);   
+                Dystrybutor dyst = new Dystrybutor("RWE");
+                System.out.println(dyst.getFxls());
+   Converter.convert(dyst);
+//   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/ko.csv");
+//   System.out.println("T19; array ppeL "+plikRwe.ppeArrayL.toArray());
+//   for(Licznik licznikRob: plikRwe.licznikiArrayL){
+//       System.out.println(licznikRob.toString());
+//   }
+//   Licznik.zapisz(plikRwe.licznikiArrayL);
+//   Ppe.zapisz(plikRwe.ppeArrayL);   
     }
     
     public static void T18(){

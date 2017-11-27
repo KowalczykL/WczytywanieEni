@@ -10,5 +10,17 @@ package pl.odczyty;
  * @author Łukasz Kowalczyk
  */
 public class Generator {
+  
+ public static void generate(){
+     
+     
+     
+     
+ }   
+    
+    
+    
+    
+    
     
 }
