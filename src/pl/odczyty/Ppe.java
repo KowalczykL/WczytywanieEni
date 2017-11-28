@@ -158,6 +158,62 @@ public class Ppe implements Serializable{
     public String toString() {
         return "Ppe{" + "Id=" + Id + ", nrPpe=" + nrPpe + ", taryfa=" + taryfa + ", taryfaId=" + taryfaId + ", dystrybutor=" + dystrybutor + ", dystrybutorId=" + dystrybutorId + ", metSza=" + metSza + '}';
     }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public String getNrPpe() {
+        return nrPpe;
+    }
+
+    public void setNrPpe(String nrPpe) {
+        this.nrPpe = nrPpe;
+    }
+
+    public String getTaryfa() {
+        return taryfa;
+    }
+
+    public void setTaryfa(String taryfa) {
+        this.taryfa = taryfa;
+    }
+
+    public int getTaryfaId() {
+        return taryfaId;
+    }
+
+    public void setTaryfaId(int taryfaId) {
+        this.taryfaId = taryfaId;
+    }
+
+    public String getDystrybutor() {
+        return dystrybutor;
+    }
+
+    public void setDystrybutor(String dystrybutor) {
+        this.dystrybutor = dystrybutor;
+    }
+
+    public int getDystrybutorId() {
+        return dystrybutorId;
+    }
+
+    public void setDystrybutorId(int dystrybutorId) {
+        this.dystrybutorId = dystrybutorId;
+    }
+
+    public int getMetSza() {
+        return metSza;
+    }
+
+    public void setMetSza(int metSza) {
+        this.metSza = metSza;
+    }
   
   
     

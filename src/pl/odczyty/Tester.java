@@ -34,11 +34,10 @@ public class Tester {
     // - arraylisty ze wskazaniami w obj plik odczytowy
     //LICZNIK - GOTOWY  wiec zapisz wszystkie do bazy dodaj metody do licznika: +toString, +zapisz, +zapiszArray +czyIstnieje, +odtworz
     //PPE toString, +zapisz, +zapiszArray, +czyIstnieje, *****odtworz, zwroć id
+    //Generator: zrobione zwracanie id dwoch ostatnich rzeczywistych odczytow
+    //   ******   teraz generowanie wskazania dla konkretnego ppe i daty
     //
-    //
-     public static void testuj(){  // TEST - test do wykonania
-          Tester.T20();
-    }
+
     public static void TX(){
     
     Dystrybutor tauron = new Dystrybutor("TAU");
@@ -92,6 +91,16 @@ public class Tester {
         
     }
     }
+         public static void testuj(){  // TEST - test do wykonania
+          Tester.T21();
+    }
+    
+       public static void T21(){
+        int[] twoNewestPhisicalIndicationsIds = Generator.getTwoNewestPhisicalIndicationsIds("PL0000010328900000000000002001600");
+        System.out.println("T21: "+twoNewestPhisicalIndicationsIds[0]);
+        System.out.println("T21: "+twoNewestPhisicalIndicationsIds[0]);
+    }  
+    
     
     public static void T20(){
         Dystrybutor dystrybutor = new Dystrybutor("RWE");
