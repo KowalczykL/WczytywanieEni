@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dokument>
+  <Naglowek>
+    <OSD>ENEA Operator</OSD>
+    <kOSD>ENED</kOSD>
+    <SE>ZEUP S.A.</SE>
+    <kSE>ZEUP_ENED_P_1142</kSE>
+    <DCW>2018-05-08 01:36:47</DCW>
+    <DD>2018-05-07</DD>
+    <W>00</W>
+  </Naglowek>
+  <Okresowe>
+    <PPE>PLENED00000590000000000002422810</PPE>
+    <T>B21</T>
+    <K>P</K>
+    <SD>Z</SD>
+    <ER>
+      <ZDR>
+        <DCPR>2018-04-01 00:00</DCPR>
+        <DCKR>2018-04-30 23:59</DCKR>
+        <IR>
+          <ER>25198.000</ER>
+          <SCR>CDOBA</SCR>
+          <SR>P</SR>
+        </IR>
+      </ZDR>
+    </ER>
+  </Okresowe>
+  <Okresowe>
+    <PPE>PLENED00000590000000000033506934</PPE>
+    <T>B21</T>
+    <K>P</K>
+    <SD>Z</SD>
+    <ER>
+      <ZDR>
+        <DCPR>2018-04-01 00:00</DCPR>
+        <DCKR>2018-04-30 23:59</DCKR>
+        <IR>
+          <ER>0.000</ER>
+          <SCR>CDOBA</SCR>
+          <SR>P</SR>
+        </IR>
+      </ZDR>
+    </ER>
+  </Okresowe>
+  <Okresowe>
+    <PPE>PLENED00000590000000000033507955</PPE>
+    <T>B21</T>
+    <K>P</K>
+    <SD>Z</SD>
+    <ER>
+      <ZDR>
+        <DCPR>2018-04-01 00:00</DCPR>
+        <DCKR>2018-04-30 23:59</DCKR>
+        <IR>
+          <ER>38096.000</ER>
+          <SCR>CDOBA</SCR>
+          <SR>P</SR>
+        </IR>
+      </ZDR>
+    </ER>
+  </Okresowe>
+</Dokument>

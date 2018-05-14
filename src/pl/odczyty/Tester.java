@@ -92,9 +92,32 @@ public class Tester {
     }
     }
          public static void testuj(){  // TEST - test do wykonania
-          Tester.T21();
+          Tester.T23();
     }
-    
+         
+             public static void T23(){
+   DDGHour ddghour = new DDGHour(11 ,"a" ,"a" ,1 ,"s" ,"s" ,1);
+     DDGHourDao.save(ddghour);
+        
+    }
+         
+         // - file recognition test
+        public static void T22(){
+            //File file = new File("C:\\Users\\Łukasz Kowalczyk\\Documents\\NetBeansProjects\\WczytywanieEni\\INPUT");
+        File[] pliki = FolderOdczytowy.listuj("INPUT");
+         for (File pliki1 : pliki) {
+             
+           
+             System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
+             System.out.print((FileRecognizer.whosFileIs(pliki1))[0]+"; ");
+             System.out.println((FileRecognizer.whosFileIs(pliki1))[1]);            
+          //ListaPlikow.listuj();
+           
+            
+            //System.out.println(file);
+            //System.out.print(FileRecognizer.whosFileIs(file)[0]+";"+FileRecognizer.whosFileIs(file)[1]);
+            
+    } }
        public static void T21(){
         int[] twoNewestPhisicalIndicationsIds = Generator.getTwoNewestPhisicalIndicationsIds("PL0000010328900000000000002001600");
         System.out.println("T21: "+twoNewestPhisicalIndicationsIds[0]);

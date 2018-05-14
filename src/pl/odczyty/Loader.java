@@ -13,6 +13,22 @@ import java.io.File;
  */
 public class Loader {
     
+    
+    public static void loadFile(String operator, String sourceType)
+    {
+        if((operator == "TAU") && (sourceType == "DP"))
+        {
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
     public static void loadDataFromFolder(Dystrybutor dystrybutor){
 
                 FolderOdczytowy folderO = new FolderOdczytowy(dystrybutor);
