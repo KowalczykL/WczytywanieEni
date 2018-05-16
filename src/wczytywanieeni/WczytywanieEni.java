@@ -6,6 +6,7 @@
 package wczytywanieeni;
 
 
+import pl.odczyty.Menu;
 import pl.odczyty.Tester;
 
 public class WczytywanieEni {
@@ -16,6 +17,9 @@ public class WczytywanieEni {
         //Tester.T3(); //deserializacja z pliku
         //Tester.T4(); //tworzy baze
         //Tester.T5(); //twor tabele
-        Tester.testuj(); //zapisz objekt
+        //Tester.testuj(); //zapisz objekt
+        Menu menu = new Menu();
+        menu.start();
+        
     }
 }

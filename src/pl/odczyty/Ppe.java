@@ -74,6 +74,13 @@ public class Ppe implements Serializable{
       }
      }
     
+    public static void listPpe(){
+        
+        
+        
+        
+    }
+    
     public static void zapisz(ArrayList<Ppe> ppe){
         for (Ppe ppe1 : ppe){
             if (!ppe1.czyIstnieje(ppe1)){ppe1.zapisz(ppe1);}

@@ -109,13 +109,13 @@ public class Tester {
              
            
              System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
-             System.out.print((FileRecognizer.whosFileIs(pliki1))[0]+"; ");
-             System.out.println((FileRecognizer.whosFileIs(pliki1))[1]);            
+             System.out.print((FileRecognizer.recognizeFile(pliki1))[0]+"; ");
+             System.out.println((FileRecognizer.recognizeFile(pliki1))[1]);            
           //ListaPlikow.listuj();
            
             
             //System.out.println(file);
-            //System.out.print(FileRecognizer.whosFileIs(file)[0]+";"+FileRecognizer.whosFileIs(file)[1]);
+            //System.out.print(FileRecognizer.recognizeFile(file)[0]+";"+FileRecognizer.recognizeFile(file)[1]);
             
     } }
        public static void T21(){

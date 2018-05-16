@@ -14,9 +14,16 @@ import java.io.File;
 public class FileRecognizer {
 
     
+    public static  String[] recognizeFile(String path){
+        File file = new File(path);
+        String[] output = FileRecognizer.recognizeFile(file);
+        return output;
+    }
     
     
-    public static  String[] whosFileIs(File file){
+    
+    
+    public static  String[] recognizeFile(File file){
     //Tauron, Enea, ...
     String operator;
   //DR - meter readings, DP - use per hour
@@ -25,6 +32,7 @@ public class FileRecognizer {
     String[] fileTypeTags = new String[2];
         
 String fileName = file.getName();
+System.out.println(fileName);
     // 1 - Energa DR
     if ((fileName.contains("UDPP_ZEUP_"))||(fileName.contains("UDPM_ZEUP_"))){
         fileTypeTags[0] = "KEE";
