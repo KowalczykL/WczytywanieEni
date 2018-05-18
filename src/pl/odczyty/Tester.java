@@ -38,10 +38,10 @@ public class Tester {
     //   ******   teraz generowanie wskazania dla konkretnego ppe i daty
     //
 
-    public static void TX(){
+    /*public static void TX(){
     
     Dystrybutor tauron = new Dystrybutor("TAU");
-    FolderOdczytowy folder = new FolderOdczytowy(tauron.getFolder());
+    Directory folder = new Directory(tauron.getFolder());
     //for (File plik1 : folder.zawFolderu){
        // System.out.println(plik1.toString());
      //}
@@ -90,7 +90,7 @@ public class Tester {
 //        }
         
     }
-    }
+    }*/
          public static void testuj(){  // TEST - test do wykonania
           Tester.T23();
     }
@@ -104,7 +104,7 @@ public class Tester {
          // - file recognition test
         public static void T22(){
             //File file = new File("C:\\Users\\Łukasz Kowalczyk\\Documents\\NetBeansProjects\\WczytywanieEni\\INPUT");
-        File[] pliki = FolderOdczytowy.listuj("INPUT");
+        File[] pliki = Directory.listuj("INPUT");
          for (File pliki1 : pliki) {
              
            
@@ -238,8 +238,8 @@ public class Tester {
      }
     
     
-     public static void T11(){
-     FolderOdczytowy lista = new FolderOdczytowy("TAU/DR");
+    /* public static void T11(){
+     Directory lista = new Directory("TAU/DR");
      System.out.println("Tester.T11 - wylistuje zawFolderu");
      for (File pliki1 : lista.zawFolderu) {
       System.out.println( pliki1);  
@@ -265,7 +265,7 @@ public class Tester {
     
    // }
          
-     }
+     }*/
      
      
      public static void T10(){ //zwracanie dystrybutora z bazy
@@ -286,7 +286,7 @@ public class Tester {
      
      
       public static void T8(){
-          File[] pliki = FolderOdczytowy.listuj("TAU/DR");
+          File[] pliki = Directory.listuj("TAU/DR");
          for (File pliki1 : pliki) {
              System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
           //ListaPlikow.listuj();

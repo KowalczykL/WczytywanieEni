@@ -49,8 +49,8 @@ Scanner inVal = new Scanner(System.in);
             //System.out.println("1Enter path to directory");   
             String inputDir = inVal.nextLine();
             System.out.println(inputDir); 
-            FolderOdczytowy directory = new FolderOdczytowy(inputDir);
-            //File[] files = FolderOdczytowy.listuj(inputDir);
+        //    Directory directory = new Directory(inputDir);
+            //File[] files = Directory.listuj(inputDir);
                // for(File oneFile: directory.zawFolderu){
               //  FileRecognizer.recognizeFile(oneFile);  
               //  }

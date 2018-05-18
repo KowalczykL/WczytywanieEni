@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 
 
-public class FolderOdczytowy {
+public class Directory {
 File[] zawFolderu;
 ArrayList<File> doWczytania;
 
@@ -33,13 +33,13 @@ ArrayList<File> doWczytania;
     public String toString() {
         return "ListaPlikow{" + "zawFolderu=" + zawFolderu + ", doWczytania=" + doWczytania + '}';
     }
-  
-    public FolderOdczytowy(Dystrybutor dystrybutor) {
+  /*
+    public Directory(Dystrybutor dystrybutor) {
         this(dystrybutor.getFolder());   
     }
+    */
     
-    
-    public FolderOdczytowy(String folder) {
+  /*  public Directory(String folder) {
 
        //System.out.println("ListaPlików.konst - parametr konstr"+folder);
       String dirPathname = folder;
@@ -81,7 +81,7 @@ ArrayList<File> doWczytania;
         
        System.out.println("Utworzono obiekt FolderOdczytowy - "+folder); 
     }
-
+*/
 
         
 	private static final boolean RECURSIVE = false;

@@ -31,7 +31,7 @@ public class Loader {
     
     public static void loadDataFromFolder(Dystrybutor dystrybutor){
 
-                FolderOdczytowy folderO = new FolderOdczytowy(dystrybutor);
+                Directory folderO = new Directory(dystrybutor);
                 PlikOdczytowyTau fileTau;
                 PlikOdczytowyRwe fileRwe;
             switch (dystrybutor.getSkrot()){
