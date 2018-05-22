@@ -96,7 +96,7 @@ public class Tester {
     }
          
              public static void T23(){
-   DDGHour ddghour = new DDGHour(11 ,"a" ,"a" ,1 ,"s" ,"s" ,1);
+   DdgHour ddghour = TestObjectsFactory.returnDdgHour();
      DDGHourDao.save(ddghour);
         
     }
@@ -125,12 +125,12 @@ public class Tester {
     }  
     
     
-    public static void T20(){
-        Dystrybutor dystrybutor = new Dystrybutor("RWE");
-       Loader.loadDataFromFolder(dystrybutor);
+   // public static void T20(){
+       // Dystrybutor dystrybutor = new Dystrybutor("RWE");
+      // Loader.loadDataFromFolder(dystrybutor);
         
         
-    }    
+   // }    
     
     
     public static void T19(){ //konwerter xls - csv

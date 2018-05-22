@@ -17,7 +17,7 @@ public class DDGHourDao {
     
     
     
-    public static boolean save(DDGHour ddgHour)
+    public static boolean save(DdgHour ddgHour)
     {
         Connection c = null;
         Statement stmt = null;
@@ -32,7 +32,7 @@ public class DDGHourDao {
          //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          //LocalDate dataLoc = LocalDate.parse(this.data, formatter);
          String sql = "INSERT INTO DDG (PPE,DATA,USAGE,STATUS,VERSIONS,VERSIONINT) " +
-                   "VALUES ('"+ddgHour.getPpe()+"','"+ddgHour.getData()+"','"+ddgHour.getUsage()+"','"+ddgHour.getStatus()+"','"+ddgHour.getVersionS()+"','"+ddgHour.getVersionInt()+"');"; 
+                   "VALUES ('"+ddgHour.getPpe()+"','"+ddgHour.getData()+"','"+ddgHour.getUsage()+"','"+ddgHour.getStatus()+"','"+ddgHour.getVersionInt()+"');"; 
                  //  "VALUES ('12', "+odc.dataOd+", "+odc.taryfa+", "+odc.wskBie+", "+odc.strefa+", "+odc.mnozna+" );"; 
          stmt.executeUpdate(sql);
          stmt.close();
@@ -47,7 +47,7 @@ public class DDGHourDao {
       return false;  
     }      
  
-        public static boolean isAlreadySaved(DDGHour ddgHour)
+        public static boolean isAlreadySaved(DdgHour ddgHour)
     {
         
         

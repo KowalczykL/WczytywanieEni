@@ -29,7 +29,7 @@ public class Loader {
     
     
     
-    public static void loadDataFromFolder(Dystrybutor dystrybutor){
+    /*public static void loadDataFromFolder(Dystrybutor dystrybutor){
 
                 Directory folderO = new Directory(dystrybutor);
                 PlikOdczytowyTau fileTau;
@@ -54,7 +54,7 @@ public class Loader {
                 
                 }
                       }    
-    }
+    }*/
     
     
     

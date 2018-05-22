@@ -5,6 +5,8 @@
  */
 package pl.odczyty;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Łukasz Kowalczyk
@@ -17,10 +19,13 @@ public class DdgDay {
     private String osd;
     private String ppe;
     private String dataS;
-//    Data dataD;
-    private String FileName;
+    private LocalDate dataD;
+    private String fileName;
     private int version;
     private int numberOfHours;
+    
+    // suming values of all hours in day into value for day - suming in constructor
+    private double dayVal;
     
     private double hour1val;
     private double hour2val;
