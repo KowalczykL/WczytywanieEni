@@ -4,7 +4,7 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>pl.odczyty.NewEntity</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:\Users\Łukasz Kowalczyk\Documents\NetBeansProjects\WczytywanieEni\odczyty.db"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:odczyty.db"/>
       <property name="javax.persistence.jdbc.user" value=""/>
       <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
       <property name="javax.persistence.jdbc.password" value=""/>
