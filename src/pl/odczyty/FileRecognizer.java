@@ -14,16 +14,16 @@ import java.io.File;
 public class FileRecognizer {
 
     
-    public static  String[] recognizeFile(String path){
+    public static  String recognizeFile(String path){
         File file = new File(path);
-        String[] output = FileRecognizer.recognizeFile(file);
+        String output = FileRecognizer.recognizeFile(file);
         return output;
     }
     
     
     
     
-    public static  String[] recognizeFile(File file){
+    public static  String recognizeFile(File file){
     //Tauron, Enea, ...
     String operator;
   //DR - meter readings, DP - use per hour
@@ -41,7 +41,7 @@ System.out.println(fileName);
     // 2 - Energa DP
     else if (fileName.contains("DDG_ZEUP_")){
         fileTypeTags[0] = "KEE";
-        fileTypeTags[1] = "DP"; 
+        fileTypeTags[1] = "DDG"; 
         }
     // 3 - WAT DR
         else if (fileName.contains("UDPZEUP_PGED_")){
@@ -51,7 +51,7 @@ System.out.println(fileName);
     // 4 - WAT DP
         else if (fileName.contains("DDGD_ZEUP_")){
         fileTypeTags[0] = "WAT";
-        fileTypeTags[1] = "DP";
+        fileTypeTags[1] = "DDG";
         }        
     // 5 - TAU DR
         else if (fileName.contains("DR_")){
@@ -61,7 +61,7 @@ System.out.println(fileName);
     // 6 - TAU DP
         else if (fileName.contains("DP_")){
         fileTypeTags[0] = "TAU";
-        fileTypeTags[1] = "DP";
+        fileTypeTags[1] = "DDG";
         }         
     // 7 - ENEA DR
         else if (fileName.contains("DO_ENED_ZEUP_")){
@@ -79,7 +79,7 @@ System.out.println(fileName);
                     fileTypeTags[0] = "RWE"; 
                 }
         
-        fileTypeTags[1] = "DP"; 
+        fileTypeTags[1] = "DDG"; 
         }        
     // 9 - LZM DR
         else if (fileName.contains("Stany")){
@@ -89,7 +89,7 @@ System.out.println(fileName);
     // 10 - LZM DP
         else if (fileName.contains("PLLZED")){
         fileTypeTags[0] = "LZM";
-        fileTypeTags[1] = "DP";
+        fileTypeTags[1] = "DDG";
         }                 
     // 11 - LZT DR
         else if (fileName.contains("_Pomiary_")){
@@ -105,7 +105,7 @@ System.out.println(fileName);
     
     
     
-     return fileTypeTags;       
+     return fileTypeTags[0]+fileTypeTags[1];       
 }
     
     

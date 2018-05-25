@@ -14,14 +14,22 @@ import java.io.File;
 public class Loader {
     
     
-    public static void loadFile(String operator, String sourceType)
+    public static void loadFile(File file)
     {
-        if((operator == "TAU") && (sourceType == "DP"))
-        {
-            
-            
-        }
+        String metaData = FileRecognizer.recognizeFile(file);
         
+        
+         switch (metaData) {
+            case "WATDDG":
+                System.out.println("Program terminated");
+
+                break;
+
+            //recognize file   
+            case "71000":
+    
+                break;
+         }
         
     }
     

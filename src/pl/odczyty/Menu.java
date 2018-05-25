@@ -39,9 +39,9 @@ public class Menu {
                 System.out.println("Enter path to file");
                 String inputPath = inVal.nextLine();
                 System.out.println(inputPath);
-                String[] fileMeta = FileRecognizer.recognizeFile(inputPath);
-                System.out.println(fileMeta[0]);
-                System.out.println(fileMeta[1]);
+                String fileMeta = FileRecognizer.recognizeFile(inputPath);
+                System.out.println(fileMeta);
+                System.out.println(fileMeta);
                 break;
 
             case "72000":
@@ -81,13 +81,16 @@ public class Menu {
                 System.out.println("Tou choose active test");
                 Tester.testuj();
                 break;
-                
+
             case "94000":
                 System.out.println("You choose hibernate tests");
                 DbSaver.saveToDb();
-                break;              
-                
-                
+                break;
+
+            case "95000":
+                System.out.println("You choose T24 - zapis ddgday");
+               Tester.T24();
+                break;
 
             default:
                 System.out.println("Wrong number/not suported yet");

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import measurement.dao.DdgDayDao;
 
 /**
  *
@@ -95,6 +96,14 @@ public class Tester {
           Tester.T23();
     }
          
+                   public static void T24(){
+   DdgDay ddgDay = TestObjectsFactory.returnDdgDay();
+   ddgDay.setHour11val(115.22);
+     DdgDayDao ddgDayDao = new DdgDayDao();
+        ddgDayDao.save(ddgDay);
+    } 
+         
+         
              public static void T23(){
    DdgHour ddghour = TestObjectsFactory.returnDdgHour();
      DDGHourDao.save(ddghour);
@@ -109,8 +118,8 @@ public class Tester {
              
            
              System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
-             System.out.print((FileRecognizer.recognizeFile(pliki1))[0]+"; ");
-             System.out.println((FileRecognizer.recognizeFile(pliki1))[1]);            
+             System.out.print((FileRecognizer.recognizeFile(pliki1))+"; ");
+             System.out.println((FileRecognizer.recognizeFile(pliki1)));            
           //ListaPlikow.listuj();
            
             
