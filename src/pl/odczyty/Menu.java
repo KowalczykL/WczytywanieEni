@@ -19,9 +19,9 @@ public class Menu {
     public void start() {
         this.doTheJob((this.selectJob()));
     }
-
+    
     public void doTheJob(int[] params) {
-
+        
         String res = "";
         for (int num : params) {
             res += num;
@@ -31,9 +31,14 @@ public class Menu {
         switch (res) {
             case "00000":
                 System.out.println("Program terminated");
-
+                
                 break;
-
+            case "10000":
+                System.out.println("Load a file");
+                File file = new File("DDGD_ZEUP_PGED_P_1761_20170303.csv");
+                System.out.print(file.getName());
+                Loader.loadFile(file);
+                break;
             //recognize file   
             case "71000":
                 System.out.println("Enter path to file");
@@ -43,7 +48,7 @@ public class Menu {
                 System.out.println(fileMeta);
                 System.out.println(fileMeta);
                 break;
-
+            
             case "72000":
                 //System.out.println("1Enter path to directory");   
                 String inputDir = inVal.nextLine();
@@ -54,44 +59,44 @@ public class Menu {
                 //  FileRecognizer.recognizeFile(oneFile);  
                 //  }
                 break;
-
+            
             case "81000":
                 System.out.println("Select table");
-
+                
                 Scanner table = new Scanner(System.in);
                 String inputTable = table.next();
-
+                
                 DbQuerier dbquerier81 = new DbQuerier();
                 dbquerier81.doQuery("SELECT", inputTable);
-
+                
                 break;
-
+            
             case "82000":
                 System.out.println("Write whole query");
                 Scanner in = new Scanner(System.in);
                 String inputQuery = in.nextLine();
-
+                
                 DbQuerier dbquerier = new DbQuerier();
-
+                
                 System.out.println(inputQuery);
                 dbquerier.doQuery(inputQuery);
                 break;
-
+            
             case "91000":
                 System.out.println("Tou choose active test");
                 Tester.testuj();
                 break;
-
+            
             case "94000":
                 System.out.println("You choose hibernate tests");
                 DbSaver.saveToDb();
                 break;
-
+            
             case "95000":
                 System.out.println("You choose T24 - zapis ddgday");
-               Tester.T24();
+                Tester.T24();
                 break;
-
+            
             default:
                 System.out.println("Wrong number/not suported yet");
                 System.out.println("Select supported code");
@@ -102,7 +107,7 @@ public class Menu {
                 System.out.println();
                 this.start();
         }
-
+        
     }
 
     // listen to number for action to do
@@ -113,7 +118,7 @@ public class Menu {
         System.out.println("You select: " + s);
         int output = Integer.parseInt(s);
         return output;
-
+        
     }
 
     // print menu, nothing more
@@ -135,7 +140,7 @@ public class Menu {
 
         // give mi first number
         params[0] = this.waitForNumber();
-
+        
         switch (params[0]) {
             case 0:
                 //System.out.println("Program terminated");
@@ -148,7 +153,7 @@ public class Menu {
                 System.out.println("1 - recognize file");
                 System.out.println("2 - recognize directory");
                 params[1] = this.waitForNumber();
-
+                
                 break;
             case 8:
                 System.out.println("You select queries, please select submenu");
@@ -156,7 +161,7 @@ public class Menu {
                 System.out.println("2 - write whole query");
                 params[1] = this.waitForNumber();
                 break;
-
+            
             case 9:
                 System.out.println("9");
                 System.out.println("You select tests, please select submenu");
@@ -165,16 +170,16 @@ public class Menu {
                 System.out.println("3 - all tests");
                 System.out.println("4 - hubernate save test");
                 params[1] = this.waitForNumber();
-
+                
                 switch (params[1]) {
                     case 1:
                         System.out.println("1");
                         break;
-
+                    
                 }
                 break;
         }
-
+        
         return params;
     }
 }

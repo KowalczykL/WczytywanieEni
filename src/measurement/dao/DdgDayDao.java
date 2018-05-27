@@ -18,12 +18,35 @@ import pl.odczyty.DdgDay;
 public class DdgDayDao implements Dao {
 
     @Override
-    public void isInBase(Object ddgDay) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public boolean isInBase(Object ddgDayO) { //jak wlasciwie działa ten select i rs
+    DdgDay ddgDay = (DdgDay) ddgDayO;
+        Boolean test = false;
+        Connection c = null;
+        Statement stmt = null;
+              try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         stmt = c.createStatement();
+         ResultSet rs;
+         rs = stmt.executeQuery("SELECT * FROM DDG_DAY WHERE PPE = '"+ddgDay.getPpe()+"' AND DATE = '"+ddgDay.getDataS()+"' AND VERSION='"+ddgDay.getVersion()+"'");
+      
+         if (rs.next())
+      {test = true;}
+         else{test = false;}
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+       
+              if(test){System.out.println("DdgDay.czyIstnieje -- juz istnieje");}
+              else {System.out.println("DdgDay.czyIstnieje -- nie istnieje - ZAPISZ");}    
+              return test;
+     }
 
     @Override
-    public void save(Object ddgDayO) {
+    public void saveAnyway(Object ddgDayO) {
         DdgDay ddgDay = (DdgDay) ddgDayO;
       Connection c = null;
       Statement stmt = null;
@@ -116,6 +139,18 @@ public class DdgDayDao implements Dao {
             System.exit(0);
         }
         return ddgDay;
+    }
+
+    @Override
+    public void saveIfNew(Object ddgDayO) {
+            DdgDay ddgDay = (DdgDay) ddgDayO;
+            
+    if( !this.isInBase(ddgDay)) {
+        System.out.print("not saved");
+        this.saveAnyway(ddgDay);
+    } else {
+       System.out.print("already saved");
+    }
     }
 
 }

@@ -668,4 +668,9 @@ public class DdgDay {
 
     }
 
+    @Override
+    public String toString() {
+        return "DdgDay{" + "id=" + id + ", osd=" + osd + ", ppe=" + ppe + ", dataS=" + dataS + ", dataD=" + dataD + ", fileName=" + fileName + ", version=" + version + ", numberOfHours=" + numberOfHours + ", dayVal=" + dayVal + ", hour1val=" + hour1val + ", hour2val=" + hour2val + ", hour3val=" + hour3val + ", hour4val=" + hour4val + ", hour5val=" + hour5val + ", hour6val=" + hour6val + ", hour7val=" + hour7val + ", hour8val=" + hour8val + ", hour9val=" + hour9val + ", hour10val=" + hour10val + ", hour11val=" + hour11val + ", hour12val=" + hour12val + ", hour13val=" + hour13val + ", hour14val=" + hour14val + ", hour15val=" + hour15val + ", hour16val=" + hour16val + ", hour17val=" + hour17val + ", hour18val=" + hour18val + ", hour19val=" + hour19val + ", hour20val=" + hour20val + ", hour21val=" + hour21val + ", hour22val=" + hour22val + ", hour23val=" + hour23val + ", hour24val=" + hour24val + ", hour2Aval=" + hour2Aval + ", hour1Status=" + hour1Status + ", hour2Status=" + hour2Status + ", hour3Status=" + hour3Status + ", hour4Status=" + hour4Status + ", hour5Status=" + hour5Status + ", hour6Status=" + hour6Status + ", hour7Status=" + hour7Status + ", hour8Status=" + hour8Status + ", hour9Status=" + hour9Status + ", hour10Status=" + hour10Status + ", hour11Status=" + hour11Status + ", hour12Status=" + hour12Status + ", hour13Status=" + hour13Status + ", hour14Status=" + hour14Status + ", hour15Status=" + hour15Status + ", hour16Status=" + hour16Status + ", hour17Status=" + hour17Status + ", hour18Status=" + hour18Status + ", hour19Status=" + hour19Status + ", hour20Status=" + hour20Status + ", hour21Status=" + hour21Status + ", hour22Status=" + hour22Status + ", hour23Status=" + hour23Status + ", hour24Status=" + hour24Status + ", hour2AStatus=" + hour2AStatus + '}';
+    }
+
 }

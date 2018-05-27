@@ -100,7 +100,11 @@ public class Tester {
    DdgDay ddgDay = TestObjectsFactory.returnDdgDay();
    ddgDay.setHour11val(115.22);
      DdgDayDao ddgDayDao = new DdgDayDao();
-        ddgDayDao.save(ddgDay);
+        ddgDayDao.saveIfNew(ddgDay);
+       // ddgDay.setPpe("33");
+        boolean is = ddgDayDao.isInBase(ddgDay);
+        System.out.print(is);
+        
     } 
          
          
