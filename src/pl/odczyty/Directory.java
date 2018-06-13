@@ -26,13 +26,20 @@ import java.util.ArrayList;
 
 
 public class Directory {
+    String input = "INPUT";
+    String ddg = "DDG";
+    String pob = "POB";
+    String dr = "DR";
+    
+    
+    
 File[] zawFolderu;
 ArrayList<File> doWczytania;
 
-    @Override
+   /* @Override
     public String toString() {
         return "ListaPlikow{" + "zawFolderu=" + zawFolderu + ", doWczytania=" + doWczytania + '}';
-    }
+    }*/
   /*
     public Directory(Dystrybutor dystrybutor) {
         this(dystrybutor.getFolder());   
@@ -89,7 +96,7 @@ ArrayList<File> doWczytania;
      * @param sciezka
      * @return u*/
         
-        public static File[] listuj(String sciezka){
+        public static File[] listFiles(String sciezka){
             
         String dirPathname = sciezka;
         File directory = new File(dirPathname);
@@ -157,7 +164,13 @@ ArrayList<File> doWczytania;
       
     }
         
-        
+      public void listInput()throws IOException{
+          
+         Directory.listFiles(input);
+          
+          
+          
+      }  
         
            
         
@@ -165,9 +178,9 @@ ArrayList<File> doWczytania;
         
         
         
-	public static void listujZaw() throws IOException {
+	public static void listujZaw(String dirPathname) throws IOException {
 
-		String dirPathname = "C:\\Users\\Łukasz Kowalczyk\\Desktop\\pliki pomiarowe\\Pliki pom\\lzt\\Odczyty";
+		//String dirPathname = "C:\\Users\\Łukasz Kowalczyk\\Desktop\\pliki pomiarowe\\Pliki pom\\lzt\\Odczyty";
 
 		File directory = new File(dirPathname);
 		if(!directory.isDirectory()){

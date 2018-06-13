@@ -8,6 +8,7 @@ package pl.odczyty;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
+import utilities.DateUtil;
 
 /**
  *
@@ -19,28 +20,67 @@ public class Menu {
     public void start() {
         this.doTheJob((this.selectJob()));
     }
-    
-    public void doTheJob(int[] params) {
-        
-        String res = "";
-        for (int num : params) {
-            res += num;
-        }
-        System.out.println("Satrt job with param" + res);
+
+    public void doTheJob(String param) {
+
+        System.out.println("Satrt job with param" + param);
         Scanner inVal = new Scanner(System.in);
-        switch (res) {
-            case "00000":
+        File[] fileAr;
+        File file;
+        Loader loader = new Loader();
+        switch (param) {
+            case "000":
                 System.out.println("Program terminated");
-                
+
                 break;
-            case "10000":
+            case "100":
                 System.out.println("Load a file");
-                File file = new File("DDGD_ZEUP_PGED_P_1761_20170303.csv");
+                file = new File("DDGD_ZEUP_PGED_P_1761_20170303.csv");
                 System.out.print(file.getName());
-                Loader.loadFile(file);
+
+                loader.loadFile(file);
                 break;
-            //recognize file   
-            case "71000":
+            //recognize file 
+                
+            case "111":
+                System.out.println("Load a file");
+                file = new File("rwe_wam_se-zeup_pob-wsor_cp_20180602.dat");
+                System.out.print(file.getName());
+
+                loader.loadFile(file);
+                break;
+
+                
+            case "400":
+                fileAr = Directory.listFiles("INPUT");
+                System.out.print(fileAr[1].toString());
+                break;
+            case "410":
+                fileAr = Directory.listFiles("DDG");
+                for (File oneFile : fileAr) {
+                    System.out.println(oneFile.getPath());
+
+                }
+
+                break;
+
+            case "500":
+                fileAr = Directory.listFiles("INPUT");
+
+                for (File oneFile : fileAr) {
+                    loader.loadFile(oneFile);
+
+                }
+                break;
+            case "510":
+                fileAr = Directory.listFiles("DDG");
+                for (File oneFile : fileAr) {
+                    loader.loadFile(oneFile);
+
+                }
+                break;
+
+            case "710":
                 System.out.println("Enter path to file");
                 String inputPath = inVal.nextLine();
                 System.out.println(inputPath);
@@ -48,55 +88,83 @@ public class Menu {
                 System.out.println(fileMeta);
                 System.out.println(fileMeta);
                 break;
-            
-            case "72000":
+
+            case "720":
                 //System.out.println("1Enter path to directory");   
                 String inputDir = inVal.nextLine();
                 System.out.println(inputDir);
                 //    Directory directory = new Directory(inputDir);
-                //File[] files = Directory.listuj(inputDir);
+                //File[] files = Directory.listFiles(inputDir);
                 // for(File oneFile: directory.zawFolderu){
                 //  FileRecognizer.recognizeFile(oneFile);  
                 //  }
                 break;
-            
-            case "81000":
+
+            case "810":
                 System.out.println("Select table");
-                
+
                 Scanner table = new Scanner(System.in);
                 String inputTable = table.next();
-                
+
                 DbQuerier dbquerier81 = new DbQuerier();
                 dbquerier81.doQuery("SELECT", inputTable);
-                
+
                 break;
-            
-            case "82000":
+
+            case "820":
                 System.out.println("Write whole query");
                 Scanner in = new Scanner(System.in);
                 String inputQuery = in.nextLine();
-                
+
                 DbQuerier dbquerier = new DbQuerier();
-                
+
                 System.out.println(inputQuery);
                 dbquerier.doQuery(inputQuery);
                 break;
-            
-            case "91000":
+
+            case "910":
                 System.out.println("Tou choose active test");
                 Tester.testuj();
                 break;
-            
-            case "94000":
+
+            case "921":
+                System.out.println("You choose date reco test");
+                DateUtil dateUtil = new DateUtil();
+                String format = dateUtil.recognizeFormat("2017-10-31");
+                System.out.println(format);
+                break;
+
+            case "922":
+                System.out.println("You choose date to millis and back test");
+                long millis = DateUtil.ConvertStringDateToMillis("1980-10-15");
+                System.out.println(millis);
+                System.out.println(DateUtil.MillisToTauStringDate(millis));
+                break;
+
+            case "923":
+                System.out.println("You choose millis to date test");
+                long millisDate = 1543705200000L;
+                System.out.println(DateUtil.MillisToTauStringDate(1543705200000L));
+                break;
+
+            case "924":
+                System.out.println("You choose full date test ");
+                String dataS = "13.05.1999";
+                long dataL = DateUtil.ConvertStringDateToMillis(dataS);
+                System.out.println("in millis " + dataL);
+                String dataTau = DateUtil.MillisToTauStringDate(dataL);
+                System.out.println("bact to date - in tau format " + dataTau);
+                break;
+            case "940":
                 System.out.println("You choose hibernate tests");
                 DbSaver.saveToDb();
                 break;
-            
-            case "95000":
+
+            case "950":
                 System.out.println("You choose T24 - zapis ddgday");
                 Tester.T24();
                 break;
-            
+
             default:
                 System.out.println("Wrong number/not suported yet");
                 System.out.println("Select supported code");
@@ -107,79 +175,43 @@ public class Menu {
                 System.out.println();
                 this.start();
         }
-        
+
     }
 
     // listen to number for action to do
-    public int waitForNumber() {
+    public String waitForNumber() {
         System.out.println("select number and press ENTER");
         Scanner in = new Scanner(System.in);
         String s = in.next();
         System.out.println("You select: " + s);
-        int output = Integer.parseInt(s);
-        return output;
-        
+
+        return s;
+
     }
 
     // print menu, nothing more
-    public int[] selectJob() {
-        int[] params = new int[5];
+    public String selectJob() {
+        String param;
         // first level
         System.out.println("Menu");
-        System.out.println("**select a number");
-        System.out.println("1 - LOAD A FILE");
-        System.out.println("2 - SHOW ALL PPE");
-        System.out.println("3 - READINGS FOR PPE");
-        System.out.println("4 - ");
-        System.out.println("7 - RECOGNIZE FILE");
-        System.out.println("8 - QUERY TO DB");
+        System.out.println("**select a numberin NNN format");
+        System.out.println("100 - LOAD A FILE");
+        System.out.println("200 - SHOW ALL PPE");
+        System.out.println("300 - READINGS FOR PPE");
+        System.out.println("400 - List (INPUT) directory");
+        System.out.println("500 - Load data from (INPUT) directory");
+        System.out.println("510 - Load data from (DDG) directory");
+        System.out.println("700 - RECOGNIZE FILE");
+        System.out.println("800 - QUERY TO DB");
         // active test, selected test, all tests
-        System.out.println("9 - Tests");
-        System.out.println("0 - EXIT");
+        System.out.println("900 - Tests");
+        System.out.println("921 - Date reco test");
+        System.out.println("000 - EXIT");
         System.out.println("");
 
         // give mi first number
-        params[0] = this.waitForNumber();
-        
-        switch (params[0]) {
-            case 0:
-                //System.out.println("Program terminated");
-                break;
-            case 1:
-                System.out.println("1");
-                break;
-            case 7:
-                System.out.println("You select recognization, please select submenu");
-                System.out.println("1 - recognize file");
-                System.out.println("2 - recognize directory");
-                params[1] = this.waitForNumber();
-                
-                break;
-            case 8:
-                System.out.println("You select queries, please select submenu");
-                System.out.println("1 - do SELECT");
-                System.out.println("2 - write whole query");
-                params[1] = this.waitForNumber();
-                break;
-            
-            case 9:
-                System.out.println("9");
-                System.out.println("You select tests, please select submenu");
-                System.out.println("1 - active test");
-                System.out.println("2 - selected test");
-                System.out.println("3 - all tests");
-                System.out.println("4 - hubernate save test");
-                params[1] = this.waitForNumber();
-                
-                switch (params[1]) {
-                    case 1:
-                        System.out.println("1");
-                        break;
-                    
-                }
-                break;
-        }
-        
-        return params;
+        param = this.waitForNumber();
+
+        return param;
     }
 }

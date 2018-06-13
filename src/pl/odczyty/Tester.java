@@ -28,7 +28,7 @@ import measurement.dao.DdgDayDao;
 public class Tester {
     //1 tworz obj na podst skrotu  
     //2 z obiektu dydtrybutor pobiea sciezke do folderu z plikami
-    //2,1 listuj pliki z folderu zwróć tablice z zawartością w File[]
+    //2,1 listFiles pliki z folderu zwróć tablice z zawartością w File[]
     //3 Array z plikami do wczytania po wer w bazie z plikami z File[]
     //X3 a moze obiekt lista plikow z polami FOLE[] - do listowania oraz array z tymi do pobrania
     // moze obj plik odczytowy z tablicą linijek w postaci stringu i tablicą odczytów z tych linijek
@@ -117,14 +117,14 @@ public class Tester {
          // - file recognition test
         public static void T22(){
             //File file = new File("C:\\Users\\Łukasz Kowalczyk\\Documents\\NetBeansProjects\\WczytywanieEni\\INPUT");
-        File[] pliki = Directory.listuj("INPUT");
+        File[] pliki = Directory.listFiles("INPUT");
          for (File pliki1 : pliki) {
              
            
              System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
              System.out.print((FileRecognizer.recognizeFile(pliki1))+"; ");
              System.out.println((FileRecognizer.recognizeFile(pliki1)));            
-          //ListaPlikow.listuj();
+          //ListaPlikow.listFiles();
            
             
             //System.out.println(file);
@@ -299,10 +299,10 @@ public class Tester {
      
      
       public static void T8(){
-          File[] pliki = Directory.listuj("TAU/DR");
+          File[] pliki = Directory.listFiles("TAU/DR");
          for (File pliki1 : pliki) {
              System.out.println("Tester.T8-Lista z for: "+pliki1.toString());
-          //ListaPlikow.listuj();
+          //ListaPlikow.listFiles();
              
          }
       }  

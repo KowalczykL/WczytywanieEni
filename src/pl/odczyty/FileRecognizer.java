@@ -95,7 +95,15 @@ System.out.println(fileName);
         else if (fileName.contains("_Pomiary_")){
         fileTypeTags[0] = "LZT";
         fileTypeTags[1] = "DR";
-        }        
+        } 
+        //12 - RWE POB
+           else if (fileName.contains("rwe_wam_se-zeup_pob-wsor_cp_")){
+        fileTypeTags[0] = "RWE";
+        fileTypeTags[1] = "POB";
+        }      
+        
+        
+        
     else
         {
         fileTypeTags[0] = "Something went wrong";
