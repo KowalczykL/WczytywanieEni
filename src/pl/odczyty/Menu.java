@@ -9,6 +9,7 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.Scanner;
+import measurement.dao.DbGate;
 import utilities.DateUtil;
 
 /**
@@ -168,9 +169,10 @@ public class Menu {
 
             case "961":
                 PobDay pobDay = TestObjectsFactory.returnPobDay();
+                DbGate dbGate = new DbGate();
                 System.out.println(pobDay.toString());
-                System.out.println(pobDay.returnQueryToSave());
-                dbQuerier1.doQuery(pobDay.returnQueryToSave());
+                System.out.println(pobDay.returnSavingQuery());
+                dbGate.saveAnywayByObjectQuery(pobDay.returnSavingQuery());
                 break;
 
                 

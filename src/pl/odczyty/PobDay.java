@@ -102,32 +102,44 @@ public class PobDay {
         return start + vals + stats;
     }
 
-    public String returnQueryToSave() {
+    public String returnSavingQuery() {
         String saveQuery = "";
         String start = "INSERT INTO";
         String tableNames = "";
         String tableVals = "";
         tableNames += this.tableFieldsList;
 
-        for (int i = 1; i <= this.numberOfHours+1; i++) {
+        for (int i = 1; i <= this.numberOfHours + 1; i++) {
             tableNames += ",HR" + i + "VAL";
         }
 
-        for (int i = 1; i <= this.numberOfHours+1; i++) {
+        for (int i = 1; i <= this.numberOfHours + 1; i++) {
             tableNames += ",HR" + i + "STAT";
         }
-        tableVals += "'"+this.osd + "','" + this.fileName + "','" + this.dateL + "','" + this.version + "','" + this.numberOfHours+"'";
+        tableVals += "'" + this.osd + "','" + this.fileName + "','" + this.dateL + "','" + this.version + "','" + this.numberOfHours + "'";
 
         for (double val : valuesAD) {
-            tableVals += "," + "'"+val+"'";
+            tableVals += "," + "'" + val + "'";
 
         }
         for (int stat : statusesAI) {
-            tableVals += "," + "'"+stat+"'";
+            tableVals += "," + "'" + stat + "'";
 
         }
         saveQuery = start + " " + this.tableName + " (" + tableNames + ") VALUES (" + tableVals + ")";
         return saveQuery;
+    }
+
+    public String isInBaseQuery() {
+
+        
+        
+        
+        
+        
+        
+        
+        return "not yet";
     }
 
 }
