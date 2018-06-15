@@ -9,7 +9,7 @@ package measurement.dao;
  *
  * @author Łukasz Kowalczyk
  */
-public class PobDayBao implements Dao{
+public class PobDayDao implements Dao{
 
     @Override
     public boolean isInBase(Object object) {

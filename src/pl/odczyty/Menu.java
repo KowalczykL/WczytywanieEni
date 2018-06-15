@@ -6,6 +6,7 @@
 package pl.odczyty;
 
 import java.io.File;
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.Scanner;
 import utilities.DateUtil;
@@ -28,6 +29,7 @@ public class Menu {
         File[] fileAr;
         File file;
         Loader loader = new Loader();
+        DbQuerier dbQuerier1 = new DbQuerier();
         switch (param) {
             case "000":
                 System.out.println("Program terminated");
@@ -41,7 +43,7 @@ public class Menu {
                 loader.loadFile(file);
                 break;
             //recognize file 
-                
+
             case "111":
                 System.out.println("Load a file");
                 file = new File("rwe_wam_se-zeup_pob-wsor_cp_20180602.dat");
@@ -50,7 +52,6 @@ public class Menu {
                 loader.loadFile(file);
                 break;
 
-                
             case "400":
                 fileAr = Directory.listFiles("INPUT");
                 System.out.print(fileAr[1].toString());
@@ -157,7 +158,7 @@ public class Menu {
                 break;
             case "940":
                 System.out.println("You choose hibernate tests");
-                DbSaver.saveToDb();
+                //DbSaver.saveToDb();
                 break;
 
             case "950":
@@ -165,6 +166,18 @@ public class Menu {
                 Tester.T24();
                 break;
 
+            case "961":
+                PobDay pobDay = TestObjectsFactory.returnPobDay();
+                System.out.println(pobDay.toString());
+                System.out.println(pobDay.returnQueryToSave());
+                dbQuerier1.doQuery(pobDay.returnQueryToSave());
+                break;
+
+                
+                
+                
+                
+                
             default:
                 System.out.println("Wrong number/not suported yet");
                 System.out.println("Select supported code");
@@ -206,6 +219,8 @@ public class Menu {
         // active test, selected test, all tests
         System.out.println("900 - Tests");
         System.out.println("921 - Date reco test");
+        System.out.println("960 - POB test");
+        System.out.println("     961 - create object and .toString test test");
         System.out.println("000 - EXIT");
         System.out.println("");
 

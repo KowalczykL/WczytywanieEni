@@ -28,4 +28,19 @@ public class TestObjectsFactory {
         return ddgDay;
     }
 
+    public static PobDay returnPobDay() {
+        PobDay pobDay = new PobDay();
+        pobDay.setOsd("RWE");
+        pobDay.setFileName("someFile");
+        pobDay.setDateL(1529054359282L);
+        pobDay.setVersion(99);
+        pobDay.setNubberOfHours(24);
+        double[] values = {1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23.23, 24.24, 25.25};
+        pobDay.setValuesAD(values);
+        int[] statuses = {11, 22, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 2323, 2424, 2525};
+        pobDay.setStatusesAI(statuses);
+
+        return pobDay;
+    }
+
 }

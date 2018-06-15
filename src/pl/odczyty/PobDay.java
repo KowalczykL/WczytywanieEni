@@ -16,13 +16,13 @@ public class PobDay {
 
     String osd;
     String fileName;
+    String tableName = "POB_DAY";
+    String tableFieldsList = "OSD,FILE_NAME,DATE_L,VERSION,NUMBER_OF_HOURS";
     long dateL;
     int version;
-    int nubberOfHours;
+    int numberOfHours;
     double[] valuesAD;
-    ArrayList<Double> values;
     int[] statusesAI;
-    ArrayList<Integer> statuses;
 
     public String getOsd() {
         return osd;
@@ -57,11 +57,11 @@ public class PobDay {
     }
 
     public int getNubberOfHours() {
-        return nubberOfHours;
+        return numberOfHours;
     }
 
     public void setNubberOfHours(int nubberOfHours) {
-        this.nubberOfHours = nubberOfHours;
+        this.numberOfHours = nubberOfHours;
     }
 
     public double[] getValuesAD() {
@@ -76,14 +76,6 @@ public class PobDay {
         this.valuesAD[index] = value;
     }
 
-    public ArrayList<Double> getValues() {
-        return values;
-    }
-
-    public void setValues(ArrayList<Double> values) {
-        this.values = values;
-    }
-
     public int[] getStatusesAI() {
         return statusesAI;
     }
@@ -96,20 +88,46 @@ public class PobDay {
         this.statusesAI[index] = status;
     }
 
-    public ArrayList<Integer> getStatuses() {
-        return statuses;
-    }
-
-    public void setStatuses(ArrayList<Integer> statuses) {
-        this.statuses = statuses;
-    }
-
     @Override
     public String toString() {
-        return "PobDay{" + "osd=" + osd + ", fileName=" + fileName + ", dateL=" + dateL + ", version=" + version + ", nubberOfHours=" + nubberOfHours + ", valuesAD0=" + valuesAD[0] + ", statusesAI0=" + statusesAI[0] + ", valuesAD10=" + valuesAD[10] + ", statusesAI10=" + statusesAI[10] + ", valuesAD24=" + valuesAD[23] + ", statusesAI24=" + statusesAI[23] + '}';
-        
+        String start = "PobDay{" + "osd=" + osd + ", fileName=" + fileName + ", dateL=" + dateL + ", version=" + version + ", nubberOfHours=" + numberOfHours + '}';
+        String vals = "";
+        String stats = "";
+        for (double val : valuesAD) {
+            vals = vals + " | " + val;
+        }
+        for (int stat : statusesAI) {
+            stats = stats + " | " + stat;
+        }
+        return start + vals + stats;
     }
 
+    public String returnQueryToSave() {
+        String saveQuery = "";
+        String start = "INSERT INTO";
+        String tableNames = "";
+        String tableVals = "";
+        tableNames += this.tableFieldsList;
 
+        for (int i = 1; i <= this.numberOfHours+1; i++) {
+            tableNames += ",HR" + i + "VAL";
+        }
+
+        for (int i = 1; i <= this.numberOfHours+1; i++) {
+            tableNames += ",HR" + i + "STAT";
+        }
+        tableVals += "'"+this.osd + "','" + this.fileName + "','" + this.dateL + "','" + this.version + "','" + this.numberOfHours+"'";
+
+        for (double val : valuesAD) {
+            tableVals += "," + "'"+val+"'";
+
+        }
+        for (int stat : statusesAI) {
+            tableVals += "," + "'"+stat+"'";
+
+        }
+        saveQuery = start + " " + this.tableName + " (" + tableNames + ") VALUES (" + tableVals + ")";
+        return saveQuery;
+    }
 
 }

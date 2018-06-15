@@ -5,12 +5,9 @@
  */
 package pl.odczyty;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 /**
  *
@@ -18,25 +15,28 @@ import org.hibernate.service.ServiceRegistry;
  */
 public class DbSaver {
 
-    private static SessionFactory sessionFactory;
-
-    public static void saveToDb() {
-
-        Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-
-        SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
-
-        Session session = factory.getCurrentSession();
-
-        session.getTransaction().begin();
-
-        session.save(TestObjectsFactory.returnDdgHour());
-
-        session.getTransaction().commit();
-
-    }
+    public void saveToBdByObjectQuery(String objectQuery) {
+      Connection c = null;
+      Statement stmt = null;
+      
+      try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+         c.setAutoCommit(false);
+         System.out.println("Opened database successfully");
+         
+         stmt = c.createStatement();
+         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+         //LocalDate dataLoc = LocalDate.parse(this.data, formatter);
+        stmt.executeUpdate(objectQuery);
+         stmt.close();
+         c.commit();
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+      System.out.println("Records created successfully");
+}
 
 }
