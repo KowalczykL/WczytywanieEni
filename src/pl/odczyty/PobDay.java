@@ -130,15 +130,43 @@ public class PobDay {
         return saveQuery;
     }
 
+    public String[] returnSavingQueryElements() {
+        String[] elements = new String[3];
+        elements[0] = this.tableName;
+        String tableFields = "(";
+
+        tableFields += this.tableFieldsList;
+
+        for (int i = 1; i <= this.numberOfHours + 1; i++) {
+            tableFields += ",HR" + i + "VAL";
+        }
+
+        for (int i = 1; i <= this.numberOfHours + 1; i++) {
+            tableFields += ",HR" + i + "STAT";
+        }
+        tableFields += ")";
+        elements[1] = tableFields;
+
+        String tableValues = "(";
+
+        tableValues += "'" + this.osd + "','" + this.fileName + "','" + this.dateL + "','" + this.version + "','" + this.numberOfHours + "'";
+
+        for (double val : valuesAD) {
+            tableValues += "," + "'" + val + "'";
+
+        }
+        for (int stat : statusesAI) {
+            tableValues += "," + "'" + stat + "'";
+        }
+        tableValues += ")";
+
+        elements[2] = tableValues;
+        return elements;
+
+    }
+
     public String isInBaseQuery() {
 
-        
-        
-        
-        
-        
-        
-        
         return "not yet";
     }
 

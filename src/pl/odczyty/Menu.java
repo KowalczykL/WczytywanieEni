@@ -172,7 +172,11 @@ public class Menu {
                 DbGate dbGate = new DbGate();
                 System.out.println(pobDay.toString());
                 System.out.println(pobDay.returnSavingQuery());
-                dbGate.saveAnywayByObjectQuery(pobDay.returnSavingQuery());
+                System.out.println(pobDay.returnSavingQueryElements()[0]);
+                System.out.println(pobDay.returnSavingQueryElements()[1]);
+                System.out.println(pobDay.returnSavingQueryElements()[2]);
+                
+                dbGate.saveAnywayByObjectQuery(pobDay.returnSavingQueryElements());
                 break;
 
                 
