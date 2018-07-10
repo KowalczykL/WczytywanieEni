@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/pl/odczyty/PobDay.java</file>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/measurement/dao/DbGate.java</file>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/measurement/dao/DdgDayDao.java</file>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/pl/odczyty/Menu.java</file>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/pl/odczyty/DdgDay.java</file>
-            <file>file:/home/puszatek/NetBeansProjects/WczytywanieEni/src/pl/odczyty/PlikOdczytowyTau.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

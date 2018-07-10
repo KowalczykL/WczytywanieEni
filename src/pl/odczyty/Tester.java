@@ -5,6 +5,7 @@
  */
 package pl.odczyty;
 
+import measurement.dao.DDGHourDao;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -41,7 +42,7 @@ public class Tester {
 
     /*public static void TX(){
     
-    Dystrybutor tauron = new Dystrybutor("TAU");
+    Osd tauron = new Osd("TAU");
     Directory folder = new Directory(tauron.getFolder());
     //for (File plik1 : folder.zawFolderu){
        // System.out.println(plik1.toString());
@@ -139,7 +140,7 @@ public class Tester {
     
     
    // public static void T20(){
-       // Dystrybutor dystrybutor = new Dystrybutor("RWE");
+       // Osd dystrybutor = new Osd("RWE");
       // Loader.loadDataFromFolder(dystrybutor);
         
         
@@ -149,7 +150,7 @@ public class Tester {
     public static void T19(){ //konwerter xls - csv
    //XlstoCsv.xls("test.xls","output.csv");
         
-                Dystrybutor dyst = new Dystrybutor("RWE");
+                Osd dyst = new Osd("RWE");
                 System.out.println(dyst.getFxls());
    Converter.convert(dyst);
 //   PlikOdczytowyRwe plikRwe = new PlikOdczytowyRwe("RWE/DR/ko.csv");
@@ -163,7 +164,7 @@ public class Tester {
     
     public static void T18(){
    //System.out.println(Licznik.liczStraty("101,1","100"));
-    //System.out.println(Dystrybutor.zwrocId("TAU"));
+    //System.out.println(Osd.zwrocId("TAU"));
     String co = "*";
     String gdzie = "PPE";
     String where = "DYSTRYBUTOR = RWE";
@@ -282,7 +283,7 @@ public class Tester {
      
      
      public static void T10(){ //zwracanie dystrybutora z bazy
-          Dystrybutor dyst = new Dystrybutor("TAU");
+          Osd dyst = new Osd("TAU");
           System.out.println("Tester.T10 - zbudowny obj dyst"+dyst);
       } 
      

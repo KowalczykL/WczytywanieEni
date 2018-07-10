@@ -14,21 +14,21 @@ import java.sql.Statement;
  *
  * @author Łukasz Kowalczyk
  */
-public class Dystrybutor {
+public class Osd {
     private String nazwa;
     private String skrot;
     private String folder;
     private String fxls;
     private String dataFormat;
 
-    public Dystrybutor(String nazwa, String skrot, String folder, String fxls) {
+    public Osd(String nazwa, String skrot, String folder, String fxls) {
         this.nazwa = nazwa;
         this.skrot = skrot;
         this.folder = folder;
         this.fxls = fxls;
     }
 
-    public Dystrybutor() {
+    public Osd() {
     }
 
     @Override
@@ -39,12 +39,12 @@ public class Dystrybutor {
     
     
     
-    public Dystrybutor (String skrot){
+    public Osd (String skrot){
         
        //System.out.println("DYST.pobDyst - Otrzymałem parametr"+skrot);
         Connection c = null;
         Statement stmt = null;
-        Dystrybutor dyst = null;
+        Osd dyst = null;
               try {
          Class.forName("org.sqlite.JDBC");
          c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");

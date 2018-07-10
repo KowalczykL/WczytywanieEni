@@ -40,10 +40,24 @@ public class DbGate {
       Statement stmt = null;
       
       try {
-         Class.forName("org.sqlite.JDBC");
-         c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
-         c.setAutoCommit(false);
-         System.out.println("Opened database successfully");
+       //  Class.forName("org.sqlite.JDBC");
+       //  c = DriverManager.getConnection("jdbc:sqlite:odczyty.db");
+       //  c.setAutoCommit(false);
+       //  System.out.println("Opened database successfully");
+         
+                  String userName = "root";  
+           String password = "MySq1?9$*";  
+           String url = "jdbc:mysql://localhost/measure"; 
+       
+       
+          Class.forName("com.mysql.cj.jdbc.Driver");
+          c = DriverManager.getConnection(url, userName, password);
+          c.setAutoCommit(false);
+          System.out.println("Opened database successfully");
+         
+         
+         
+         
          
          stmt = c.createStatement();
          //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

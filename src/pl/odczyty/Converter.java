@@ -24,7 +24,7 @@ import org.apache.poi.ss.usermodel.Row;
  */
 public class Converter {
     
-    public static void convert (Dystrybutor dystrybutor){
+    public static void convert (Osd dystrybutor){
              System.out.println("Start");
         String folderOut = dystrybutor.getFolder();
         String format = "yyyyMMdd-HHmm";

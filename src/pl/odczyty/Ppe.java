@@ -42,7 +42,7 @@ public class Ppe implements Serializable{
         this.taryfa = taryfa;
         //this.taryfaId = taryfaId;
         this.dystrybutor = dystrybutor;
-        this.dystrybutorId = Dystrybutor.zwrocId(dystrybutor);
+        this.dystrybutorId = Osd.zwrocId(dystrybutor);
         this.metSza = 1;
     }
   

@@ -142,7 +142,7 @@ public class Wskazanie {
     
     
     
-    public static void zapisz (ArrayList<Wskazanie> wsk, Dystrybutor dyst){
+    public static void zapisz (ArrayList<Wskazanie> wsk, Osd dyst){
         for (Wskazanie wskTemp : wsk){
             if(!Wskazanie.czyIstnieje(wskTemp))
             {Wskazanie.zapisz(wskTemp, dyst);
@@ -153,7 +153,7 @@ public class Wskazanie {
     }
     
     
-    public static void zapisz (Wskazanie wsk, Dystrybutor dyst){
+    public static void zapisz (Wskazanie wsk, Osd dyst){
         
       Connection c = null;
       Statement stmt = null;
